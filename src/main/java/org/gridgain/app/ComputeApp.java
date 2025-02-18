@@ -16,11 +16,15 @@
  */
 package org.gridgain.app;
 
+import static org.gridgain.app.DataLoader.CUSTOMER;
+import static org.gridgain.app.DataLoader.INVOICELINE;
+
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeSet;
+
 import javax.cache.Cache;
 
 import org.apache.ignite.Ignite;
@@ -54,6 +58,10 @@ public class ComputeApp {
 		AppConfiguration cfg = new AppConfiguration();
 
         try (Ignite ignite = Ignition.start(cfg)) {
+			DataLoader.dropTables(ignite);
+			DataLoader.createTables(ignite);
+			DataLoader.populateTables(ignite);
+
             calculateTopPayingCustomers(ignite);
 
             // wait for metrics to flush to Control Center
@@ -91,7 +99,7 @@ public class ComputeApp {
 
         public TreeSet<TopCustomer> call() throws Exception {
             IgniteCache<BinaryObject, BinaryObject> invoiceLineCache = localNode.cache(
-                "InvoiceLine").withKeepBinary();
+                INVOICELINE).withKeepBinary();
 
             ScanQuery<BinaryObject, BinaryObject> scanQuery = new ScanQuery<>();
             scanQuery.setLocal(true);
@@ -122,7 +130,7 @@ public class ComputeApp {
         }
 
         private TreeSet<TopCustomer> calculateTopCustomers() {
-            IgniteCache<Integer, BinaryObject> customersCache = localNode.cache("Customer").withKeepBinary();
+            IgniteCache<Integer, BinaryObject> customersCache = localNode.cache(CUSTOMER).withKeepBinary();
 
             TreeSet<TopCustomer> sortedPurchases = new TreeSet<>();
 

@@ -1,18 +1,6 @@
 --    This SQL sript is derived from the Chinook database distributed under the license above. The script is adopted to
 --    the Ignite SQL syntax (ANSI-99).
 
-DROP TABLE IF EXISTS Album;
-DROP TABLE IF EXISTS Artist;
-DROP TABLE IF EXISTS Customer;
-DROP TABLE IF EXISTS Employee;
-DROP TABLE IF EXISTS Genre;
-DROP TABLE IF EXISTS Invoice;
-DROP TABLE IF EXISTS InvoiceLine;
-DROP TABLE IF EXISTS MediaType;
-DROP TABLE IF EXISTS Playlist;
-DROP TABLE IF EXISTS PlaylistTrack;
-DROP TABLE IF EXISTS Track;
-
 CREATE TABLE Artist
 (
     ArtistId INT,
