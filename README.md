@@ -45,12 +45,12 @@ start the sample code with IntelliJ IDEA or Eclipse. The JAR is used by other to
 to download the module that connects to GridGain Nebula.
 3. Start the first cluster node (or just start the app with IntelliJ IDEA or Eclipse):
     ```bash
-    java -cp libs/core.jar training.ServerStartup
+    java -cp libs/core.jar org/gridgain/app/IgniteServer
     ```
 
 4. Open another terminal window and start the second node:
     ```bash
-    java -cp libs/core.jar training.ServerStartup
+    java -cp libs/core.jar org/gridgain/app/IgniteServer
     ```
 
 Both nodes auto-discover each other and you'll have a two-nodes cluster ready for exercises.
