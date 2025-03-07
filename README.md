@@ -45,12 +45,12 @@ start the sample code with IntelliJ IDEA or Eclipse. The JAR is used by other to
 to download the module that connects to GridGain Nebula.
 3. Start the first cluster node (or just start the app with IntelliJ IDEA or Eclipse):
     ```bash
-    java -cp libs/core.jar org/gridgain/app/IgniteServer
+    java -cp libs/core.jar org/gridgain/server/IgniteServer
     ```
 
 4. Open another terminal window and start the second node:
     ```bash
-    java -cp libs/core.jar org/gridgain/app/IgniteServer
+    java -cp libs/core.jar org/gridgain/server/IgniteServer
     ```
 
 Both nodes auto-discover each other and you'll have a two-nodes cluster ready for exercises.
@@ -63,16 +63,11 @@ records, to execute and optimize SQL queries, and to monitor the state of the cl
 
 2. Create an account to sign in into GridGain Nebula.
 
-3. Select "Attach GridGain" option, which opens a modal panel to enter connection token of the GridGain cluster. Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster (the default token expires in 5 minutes after the cluster startup time):
+3. Select "Attach GridGain" option, which opens a modal panel to enter connection token of the GridGain cluster. ![image](https://github.com/user-attachments/assets/c9b9406c-3d82-4d65-88a4-14090f22cdab)
 
-    * Open a terminal window and navigate to the root directory of this project.
-    
-    * Generate the token (the `ManagementCommandHandler` is the tool used by the 
-    [management.sh|bat script](https://www.gridgain.com/docs/control-center/latest/clusters#generating-a-token) of the 
-    Ignite Agent distribution package, you just call it directly with this training to skip extra downloads): 
-        ```bash
-        java -cp libs/core.jar org.gridgain.control.agent.commandline.ManagementCommandHandler --token
-        ```              
+Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster (the default token expires in 5 minutes after the cluster startup time):
+* Open a terminal window and navigate to the root directory of this project.
+* Generate the token as instructed on the "Attach GridGain" modal. 
 
 4. [Register the cluster](https://www.gridgain.com/docs/control-center/latest/clusters#adding-clusters) with GridGain Nebula 
 using the token.
