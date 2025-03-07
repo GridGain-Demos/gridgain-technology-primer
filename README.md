@@ -76,7 +76,7 @@ Now you need to create a Media Store schema and load the cluster with sample dat
 
 1. Open a terminal window and navigate to the root directory of this project.
    
-2. Assuming that you've already assembled the core executable JAR with all the dependencies, launch a SQLLine process:
+2. We will use the executable JAR created earlier and launch a SQLLine process:
     ```bash
     java -cp libs/core.jar sqlline.SqlLine
     ```
@@ -86,9 +86,12 @@ Now you need to create a Media Store schema and load the cluster with sample dat
     !connect jdbc:ignite:thin://127.0.0.1/ ignite ignite
     ```
 
-4. Load the Media Store database:
+4. Create and load the Media Store database:
     ```bash
-    !run config/media_store.sql
+    !run sql/media_store_create.sql
+    ```
+    ```bash
+    !run sql/media_store_populate.sql
     ```
 
 Keep the connection open as you'll use it for following exercises.
