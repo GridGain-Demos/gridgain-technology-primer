@@ -178,8 +178,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<finalName>apps</finalName>
-					<outputFile>${project.basedir}/libs/apps.jar</outputFile>
+					<outputFile>${project.basedir}/libs/core.jar</outputFile>
 				</configuration>
 			</plugin>
 		</plugins>

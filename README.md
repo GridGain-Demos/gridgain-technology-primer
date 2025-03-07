@@ -38,7 +38,7 @@ Start a two-node Ignite cluster:
 2. Use Maven to create a core executable JAR with all the dependencies (Note, build the JAR even if you plan to
 start the sample code with IntelliJ IDEA or Eclipse. The JAR is used by other tools throughout the class):
     ```bash
-    mvn clean package -P core
+    mvn clean package
     ```
    If you see build errors, it may be because a firewall or proxy server is blocking access to
 [GridGain's External Maven Repo](https://www.gridgainsystems.com/nexus/content/repositories/external) which is used
