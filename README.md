@@ -65,9 +65,7 @@ records, to execute and optimize SQL queries, and to monitor the state of the cl
 
 3. Select "Attach GridGain" option, which opens a modal panel to enter connection token of the GridGain cluster. ![image](https://github.com/user-attachments/assets/c9b9406c-3d82-4d65-88a4-14090f22cdab)
 
-Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster (the default token expires in 5 minutes after the cluster startup time):
-* Open a terminal window and navigate to the root directory of this project.
-* Generate the token as instructed on the "Attach GridGain" modal. 
+Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster (the default token expires in 5 minutes after the cluster startup time), generate the token as instructed on the "Attach GridGain" modal. 
 
 4. [Register the cluster](https://www.gridgain.com/docs/control-center/latest/clusters#adding-clusters) with GridGain Nebula 
 using the token.
