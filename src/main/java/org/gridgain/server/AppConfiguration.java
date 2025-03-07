@@ -1,4 +1,4 @@
-package org.gridgain.app;
+package org.gridgain.server;
 
 import static org.apache.ignite.configuration.DeploymentMode.CONTINUOUS;
 

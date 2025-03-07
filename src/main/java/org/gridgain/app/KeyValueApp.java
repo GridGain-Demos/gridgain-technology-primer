@@ -17,7 +17,7 @@
 
 package org.gridgain.app;
 
-import static org.gridgain.app.DataLoader.ARTIST;
+import static org.gridgain.server.DataLoader.ARTIST;
 
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
@@ -25,6 +25,8 @@ import org.apache.ignite.Ignition;
 import org.apache.ignite.cache.affinity.Affinity;
 import org.apache.ignite.cluster.ClusterNode;
 import org.gridgain.model.Artist;
+import org.gridgain.server.AppConfiguration;
+import org.gridgain.server.DataLoader;
 
 public class KeyValueApp {
 

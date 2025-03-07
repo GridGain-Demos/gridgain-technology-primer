@@ -63,7 +63,7 @@ records, to execute and optimize SQL queries, and to monitor the state of the cl
 
 2. Create an account to sign in into GridGain Nebula.
 
-3. Just in case, generate a new token for the cluster (the default token expires in 5 minutes after the cluster startup time):
+3. Select "Attach GridGain" option, which opens a modal panel to enter connection token of the GridGain cluster. Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster (the default token expires in 5 minutes after the cluster startup time):
 
     * Open a terminal window and navigate to the root directory of this project.
     

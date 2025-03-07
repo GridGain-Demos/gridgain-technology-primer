@@ -16,8 +16,8 @@
  */
 package org.gridgain.app;
 
-import static org.gridgain.app.DataLoader.CUSTOMER;
-import static org.gridgain.app.DataLoader.INVOICELINE;
+import static org.gridgain.server.DataLoader.CUSTOMER;
+import static org.gridgain.server.DataLoader.INVOICELINE;
 
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -38,6 +38,8 @@ import org.apache.ignite.cluster.ClusterGroup;
 import org.apache.ignite.lang.IgniteCallable;
 import org.apache.ignite.resources.IgniteInstanceResource;
 import org.gridgain.model.TopCustomer;
+import org.gridgain.server.AppConfiguration;
+import org.gridgain.server.DataLoader;
 
 /**
  * The application uses Apache Ignite compute capabilities for a calculation of the top-5 paying customers. The compute
