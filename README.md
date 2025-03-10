@@ -211,17 +211,15 @@ avoid the usage of the non-colocated joins:
 
 ## Running Co-located Compute Tasks
 
-Run `training.ComputeApp` that uses Apache Ignite compute capabilities for a calculation of top-5 paying customers.
+Run `org.gridgain.app.ComputeApp` that uses Apache Ignite compute capabilities for a calculation of top-5 paying customers.
 The compute task executes on every cluster node, iterates through local records and responds to the application that 
 merges partial results.
 
-1. Build an executable JAR with the applications' classes (or just start the app with IntelliJ IDEA or Eclipse):
-    ```bash
-    mvn clean package -P apps
-    ```
+1. In the earlier step of building the project, you can observe 2 jars being built in the libs folder of the project. We will now work with the apps.jar in this section.
+
 2. Run the app in the terminal:
     ```bash
-    java -cp libs/apps.jar training.ComputeApp
+    java -cp libs/apps.jar org.gridgain.app.ComputeApp
     ```
 3. Check the logs of the `ServerStartup` processes (your Ignite server nodes) to see that the calculation
 was executed across the cluster.
