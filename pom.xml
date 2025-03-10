@@ -51,6 +51,11 @@
                     <artifactId>control-center-agent</artifactId>
                     <version>${gridgain.version}</version>
                 </dependency>
+                <dependency>
+                    <groupId>org.gridgain</groupId>
+                    <artifactId>ignite-control-utility</artifactId>
+                    <version>${gridgain.version}</version>
+                </dependency>
             </dependencies>
         </profile>
         </profiles>
