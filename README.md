@@ -65,7 +65,18 @@ records, to execute and optimize SQL queries, and to monitor the state of the cl
 
 3. Select "Attach GridGain" option, which opens a modal panel to enter connection token of the GridGain cluster. ![image](https://github.com/user-attachments/assets/c9b9406c-3d82-4d65-88a4-14090f22cdab)
 
-Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster as instructed on the "Attach GridGain" modal. The default token expires in 5 minutes after the cluster startup time. 
+Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster as instructed below. The default token expires in 5 minutes after the cluster startup time.
+
+* Open a terminal window and navigate to the root directory of this project.
+    
+* Generate the token (the `ManagementCommandHandler` is the tool used by the 
+    [management.sh|bat script](https://www.gridgain.com/docs/control-center/latest/clusters#generating-a-token) of the 
+    Ignite Agent distribution package, you just call it directly with this training to skip extra downloads): 
+    
+  ```bash
+  java -cp libs/core.jar org.gridgain.control.agent.commandline.ManagementCommandHandler --token
+  ```
+     
 More information on [Registering the cluster](https://www.gridgain.com/docs/control-center/latest/clusters#adding-clusters) with GridGain Nebula 
 using the token.
 
@@ -100,14 +111,16 @@ Keep the connection open as you'll use it for following exercises.
 With the Media Store database loaded, you can check how Ignite distributed the records within the cluster:
 
 1. Open the [Caches Screen](https://www.gridgain.com/docs/control-center/latest/caches#partition-distribution) of 
-GridGain Nebula. You will see the tables created from Sqlline on the Caches Screen.
+GridGain Nebula. You will see the tables created from SQLLine on the Caches Screen.
 <img width="1491" alt="image" src="https://github.com/user-attachments/assets/79006749-ea3a-4a99-9152-948d54862dc8" />
 
 2. Select different caches and observe the number of primary keys. <img width="1378" alt="image" src="https://github.com/user-attachments/assets/d4e2b7ae-087b-42c7-913f-b7fe57d645b3" />
-You can verify the same on your Sqlline window.
-<img width="597" alt="image" src="https://github.com/user-attachments/assets/812cb46c-c9a0-4adf-be04-df1d1c965829" />
 
-3. Optional- scale out the cluster by the third node. You'll see that some partitions were rebalanced to the new node.
+You can verify the same on your SQLLine window.
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/24051781-0293-494b-8f14-bf57cbfc9755" />
+
+4. Optional- scale out the cluster by the third node. You'll see that some partitions were rebalanced to the new node.
 <img width="1376" alt="image" src="https://github.com/user-attachments/assets/7e3f172c-0537-4177-b061-288eb68bb969" />
 
 
@@ -155,64 +168,58 @@ The non-colocated joins used above come with a performance penalty, i.e., if the
 during the join phase, your performance will be impacted. However, it's possible to co-locate `Track` and `Artist` tables, and
 avoid the usage of the non-colocated joins:
 
-1. Search for the `CREATE TABLE Track` command in the `media_store.sql` file.
+1. Search for the `CREATE TABLE Track` command in the `media_store_create.sql` file.
 
 2. Replace `PRIMARY KEY (TrackId)` with `PRIMARY KEY (TrackId, ArtistId)`.
 
 3. Co-locate Tracks with Artist by adding `affinityKey=ArtistId` to the parameters list of the `WITH ...` operator.
 
-4. As long as you changed the primary and affinity keys in runtime, you need to update the Ignite metadata before recreating the table:
+4. The above mentioned changes are available in the file `media_store_create_colocated.sql`. We will drop all the tables from SQLLine terminal(earlier used for creating and populating the cache). Stop the running GridGain server(s). Remove the `.txt` extension of TrackKey.java.txt file so that now you have TrackKey.java in your org.gridgain.model folder.
 
-    * Open a terminal window and navigate to the root directory of this project.
-    
-    * Enable the experimental features (Mac and Linux):
+    * Build the project:
         ```bash
-        export IGNITE_ENABLE_EXPERIMENTAL_COMMAND=true
+        mvn clean package
         ```
-    * Enable the experimental features (Windows):
+   * Start the server(s):
         ```bash
-        set IGNITE_ENABLE_EXPERIMENTAL_COMMAND=true
-       ```
-    * Clean the metadata for the `Track` object:
-        ```bash
-        java -cp libs/core.jar org.apache.ignite.internal.commandline.CommandHandler --meta remove --typeName training.model.Track
-        ```
-    * Clean the metadata for the `TrackKey` object:
-        ```bash
-        java -cp libs/core.jar org.apache.ignite.internal.commandline.CommandHandler --meta remove --typeName training.model.TrackKey
-        ```          
-5. Recreate the table using the SQLLine tool:
-    * Launch SQLine from a terminal window:
+        java -cp libs/core.jar org/gridgain/server/IgniteServer
+        ``` 
+    * Launch SQLine from a terminal window (in case you exited the earlier one):
         ```bash
         java -cp libs/core.jar sqlline.SqlLine
         ```
-       
-    * Connect to the cluster:
+   * Connect to the cluster:
         ```bash
         !connect jdbc:ignite:thin://127.0.0.1/ ignite ignite
+        ```       
+    * Drop the existing tables from SQLLine. Confirm if it asks you whether you want to delete all the tables.
+        ```bash
+        !dropall
         ```
-    
+    * Create the tables using the script. This time the script contains affinity key, which mentions what data should reside on the same node.
+        ```bash
+       !run sql/media_store_create_colocated.sql
+       ```
     * Load the Media Store database:
         ```bash
-        !run config/media_store.sql
+        !run sql/media_store_populate.sql
         ```
+        
+5. In GridGain Nebula, run that query once again(without selecting the checkbox and you'll see that all the `artist` columns are filled in because now all the Tracks are stored together with their Artists on the same cluster node.
+<img width="1061" alt="image" src="https://github.com/user-attachments/assets/af1ae8bf-76bc-4ff7-9287-a25d736a4f57" />
 
-6. In GridGain Nebula, run that query once again and you'll see that all the `artist` columns are filled in because now 
-all the Tracks are stored together with their Artists on the same cluster node.
 
 ## Running Co-located Compute Tasks
 
-Run `training.ComputeApp` that uses Apache Ignite compute capabilities for a calculation of top-5 paying customers.
+Run `org.gridgain.app.ComputeApp` that uses Apache Ignite compute capabilities for a calculation of top-5 paying customers.
 The compute task executes on every cluster node, iterates through local records and responds to the application that 
 merges partial results.
 
-1. Build an executable JAR with the applications' classes (or just start the app with IntelliJ IDEA or Eclipse):
-    ```bash
-    mvn clean package -P apps
-    ```
+1. In the earlier step of building the project, you can observe 2 jars being built in the libs folder of the project. We will now work with the apps.jar in this section.
+
 2. Run the app in the terminal:
     ```bash
-    java -cp libs/apps.jar training.ComputeApp
+    java -cp libs/apps.jar org.gridgain.app.ComputeApp
     ```
 3. Check the logs of the `ServerStartup` processes (your Ignite server nodes) to see that the calculation
 was executed across the cluster.
