@@ -13,7 +13,7 @@ This project will also work with Java 17, but additional options need
 to be specified on the command-line. You can use the supplied arguments
 file like this:
    ```bash
-    java @src/main/resources/j17.params -cp libs/core.jar training.ServerStartup
+    java @src/main/resources/j17.params
    ```
 
 See the [Ignite documentation](https://ignite.apache.org/docs/latest/setup#running-ignite-with-java-11-or-later)
