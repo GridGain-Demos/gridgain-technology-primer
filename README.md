@@ -118,7 +118,7 @@ going to run basic SQL operations as well as more advanced ones.
 
 ### Querying Single Table
 
-1. Go to the [SQL Notebooks Screen](https://www.gridgain.com/docs/control-center/latest/querying) of GridGain Nebula.
+1. Go to the [Queries Screen](https://www.gridgain.com/docs/control-center/latest/querying) of GridGain Nebula.
  
 2. Run the following query to find top-20 longest tracks:
 
@@ -144,10 +144,13 @@ JOIN with the `Artist` table:
 
     Once you run the query, you'll see that the `artist` column is blank for some records. That's because `Track` and 
     `Artist` tables are not co-located and the nodes don't have all data available locally during the join phase.
+   <img width="1476" alt="image" src="https://github.com/user-attachments/assets/1da233e1-bef6-45a6-aa46-0d6980d79bde" />
     
-2. Allow the non-colocated joins by enabling the `Allow non-colocated joins` checkbox on the GridGain Nebula screen.
+3. Allow the non-colocated joins by enabling the `Allow non-colocated joins` checkbox on the GridGain Nebula screen.
+   <img width="1086" alt="image" src="https://github.com/user-attachments/assets/8d6bb24c-51db-4955-a91e-728483b13e04" />
 
-3. Run the query again to see a complete and correct result.
+
+5. Run the query again to see a complete and correct result.
 
 ### Joining Two Co-located Tables
 
