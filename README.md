@@ -172,44 +172,40 @@ avoid the usage of the non-colocated joins:
 
 3. Co-locate Tracks with Artist by adding `affinityKey=ArtistId` to the parameters list of the `WITH ...` operator.
 
-4. As long as you changed the primary and affinity keys in runtime, you need to update the Ignite metadata before recreating the table:
+4. The above mentioned changes are available in the file `media_store_create_colocated.sql`. We will drop all the tables from SQLLine terminal(earlier used for creating and populating the cache). Stop the running GridGain server(s). Remove the `.txt` extension of TrackKey.java.txt file so that now you have TrackKey.java in your org.gridgain.model folder.
 
-    * Open a terminal window and navigate to the root directory of this project.
-    
-    * Enable the experimental features (Mac and Linux):
+    * Build the project:
         ```bash
-        export IGNITE_ENABLE_EXPERIMENTAL_COMMAND=true
+        mvn clean package
         ```
-    * Enable the experimental features (Windows):
+   * Start the server(s):
         ```bash
-        set IGNITE_ENABLE_EXPERIMENTAL_COMMAND=true
-       ```
-    * Clean the metadata for the `Track` object:
-        ```bash
-        java -cp libs/core.jar org.apache.ignite.internal.commandline.CommandHandler --meta remove --typeName training.model.Track
-        ```
-    * Clean the metadata for the `TrackKey` object:
-        ```bash
-        java -cp libs/core.jar org.apache.ignite.internal.commandline.CommandHandler --meta remove --typeName training.model.TrackKey
-        ```          
-5. Recreate the table using the SQLLine tool:
-    * Launch SQLine from a terminal window:
+        java -cp libs/core.jar org/gridgain/server/IgniteServer
+        ``` 
+    * Launch SQLine from a terminal window (in case you exited the earlier one):
         ```bash
         java -cp libs/core.jar sqlline.SqlLine
         ```
-       
-    * Connect to the cluster:
+   * Connect to the cluster:
         ```bash
         !connect jdbc:ignite:thin://127.0.0.1/ ignite ignite
+        ```       
+    * Drop the existing tables from SQLLine. Confirm if it asks you whether you want to delete all the tables.
+        ```bash
+        !dropall
         ```
-    
+    * Create the tables using the script. This time the script contains affinity key, which mentions what data should reside on the same node.
+        ```bash
+       !run sql/media_store_create_colocated.sql
+       ```
     * Load the Media Store database:
         ```bash
-        !run config/media_store.sql
+        !run sql/media_store_populate.sql
         ```
+        
+5. In GridGain Nebula, run that query once again(without selecting the checkbox and you'll see that all the `artist` columns are filled in because now all the Tracks are stored together with their Artists on the same cluster node.
+<img width="1061" alt="image" src="https://github.com/user-attachments/assets/af1ae8bf-76bc-4ff7-9287-a25d736a4f57" />
 
-6. In GridGain Nebula, run that query once again and you'll see that all the `artist` columns are filled in because now 
-all the Tracks are stored together with their Artists on the same cluster node.
 
 ## Running Co-located Compute Tasks
 
