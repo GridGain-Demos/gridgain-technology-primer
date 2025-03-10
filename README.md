@@ -26,7 +26,7 @@ for more details. The steps that follow assume Java 8 or 11.
     git clone https://github.com/GridGain-Demos/ignite-essentials-developer-training.git
     ```
 
-2. (optionally), open the project in your favourite IDE such as IntelliJ or Eclipse, or just use a simple text editor
+2. Optional- open the project in your favourite IDE such as IntelliJ or Eclipse, or just use a simple text editor
 and command-line instructions prepared for all the samples.    
 
 ## Starting Ignite Cluster
@@ -65,9 +65,8 @@ records, to execute and optimize SQL queries, and to monitor the state of the cl
 
 3. Select "Attach GridGain" option, which opens a modal panel to enter connection token of the GridGain cluster. ![image](https://github.com/user-attachments/assets/c9b9406c-3d82-4d65-88a4-14090f22cdab)
 
-Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster (the default token expires in 5 minutes after the cluster startup time), generate the token as instructed on the "Attach GridGain" modal. 
-
-4. [Register the cluster](https://www.gridgain.com/docs/control-center/latest/clusters#adding-clusters) with GridGain Nebula 
+Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster as instructed on the "Attach GridGain" modal. The default token expires in 5 minutes after the cluster startup time. 
+More information on [Registering the cluster](https://www.gridgain.com/docs/control-center/latest/clusters#adding-clusters) with GridGain Nebula 
 using the token.
 
 ## Creating Media Store Schema and Loading Data
