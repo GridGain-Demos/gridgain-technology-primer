@@ -65,7 +65,18 @@ records, to execute and optimize SQL queries, and to monitor the state of the cl
 
 3. Select "Attach GridGain" option, which opens a modal panel to enter connection token of the GridGain cluster. ![image](https://github.com/user-attachments/assets/c9b9406c-3d82-4d65-88a4-14090f22cdab)
 
-Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster as instructed on the "Attach GridGain" modal. The default token expires in 5 minutes after the cluster startup time. 
+Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster as instructed below. The default token expires in 5 minutes after the cluster startup time.
+
+* Open a terminal window and navigate to the root directory of this project.
+    
+* Generate the token (the `ManagementCommandHandler` is the tool used by the 
+    [management.sh|bat script](https://www.gridgain.com/docs/control-center/latest/clusters#generating-a-token) of the 
+    Ignite Agent distribution package, you just call it directly with this training to skip extra downloads): 
+    
+  ```bash
+  java -cp libs/core.jar org.gridgain.control.agent.commandline.ManagementCommandHandler --token
+  ```
+     
 More information on [Registering the cluster](https://www.gridgain.com/docs/control-center/latest/clusters#adding-clusters) with GridGain Nebula 
 using the token.
 
@@ -155,7 +166,7 @@ The non-colocated joins used above come with a performance penalty, i.e., if the
 during the join phase, your performance will be impacted. However, it's possible to co-locate `Track` and `Artist` tables, and
 avoid the usage of the non-colocated joins:
 
-1. Search for the `CREATE TABLE Track` command in the `media_store.sql` file.
+1. Search for the `CREATE TABLE Track` command in the `media_store_create.sql` file.
 
 2. Replace `PRIMARY KEY (TrackId)` with `PRIMARY KEY (TrackId, ArtistId)`.
 
