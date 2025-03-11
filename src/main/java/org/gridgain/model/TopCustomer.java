@@ -17,8 +17,20 @@
 package org.gridgain.model;
 
 import java.math.BigDecimal;
-import org.jetbrains.annotations.NotNull;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class TopCustomer implements Comparable<TopCustomer>{
     private int customerId;
 
@@ -29,73 +41,13 @@ public class TopCustomer implements Comparable<TopCustomer>{
     private String city;
 
     BigDecimal totalPurchases;
-
+    
     public TopCustomer(int customerId, BigDecimal totalPurchases) {
         this.customerId = customerId;
         this.totalPurchases = totalPurchases;
     }
 
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public BigDecimal getTotalPurchases() {
-        return totalPurchases;
-    }
-
-    public void setTotalPurchases(BigDecimal totalPurchases) {
-        this.totalPurchases = totalPurchases;
-    }
-
-    @Override public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-
-        TopCustomer customer = (TopCustomer)o;
-
-        if (customerId != customer.customerId)
-            return false;
-
-        return totalPurchases.equals(customer.totalPurchases);
-    }
-
-    @Override public int hashCode() {
-        int result = customerId;
-        result = 31 * result + totalPurchases.hashCode();
-        return result;
-    }
-
-    @Override public int compareTo(@NotNull TopCustomer customer) {
+    @Override public int compareTo(TopCustomer customer) {
         int result = totalPurchases.compareTo(customer.getTotalPurchases());
 
         if (result == 0)
@@ -104,13 +56,4 @@ public class TopCustomer implements Comparable<TopCustomer>{
         return result;
     }
 
-    @Override public String toString() {
-        return "TopCustomer{" +
-            "customerId=" + customerId +
-            ", fullName='" + fullName + '\'' +
-            ", country='" + country + '\'' +
-            ", city='" + city + '\'' +
-            ", totalPurchases=" + totalPurchases +
-            '}';
-    }
 }

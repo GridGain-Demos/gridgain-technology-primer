@@ -17,23 +17,30 @@
 
 package org.gridgain.model;
 
-import org.apache.ignite.cache.query.annotations.QuerySqlField;
+import org.apache.ignite.catalog.annotations.Column;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@ToString
 public class Artist {
-	
-	@QuerySqlField
+    @Column
     private String name;
+
+    public Artist() {
+    }
+
+    public Artist(String name) {
+        this.name = name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override public String toString() {
+        return "Artist{" +
+            "name='" + name + '\'' +
+            '}';
+    }
 }

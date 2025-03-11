@@ -17,50 +17,40 @@
 
 package org.gridgain.app;
 
-import static org.gridgain.app.DataLoader.ARTIST;
-
 import org.apache.ignite.Ignite;
-import org.apache.ignite.IgniteCache;
-import org.apache.ignite.Ignition;
-import org.apache.ignite.cache.affinity.Affinity;
-import org.apache.ignite.cluster.ClusterNode;
+import org.apache.ignite.client.IgniteClient;
 import org.gridgain.model.Artist;
 
+
+/**
+ * The application reads Artists from the cluster using key-value requests. Complete the TODO
+ * item to see how Ignite distributes records across partitions and nodes.
+ */
 public class KeyValueApp {
 
-	public static void main(String[] args) throws Exception {
-		System.setProperty("IGNITE_QUIET", "true");
-		System.setProperty("java.net.preferIPv4Stack", "true");
-		new KeyValueApp();
-	}
+    public static void main(String[] args) throws Exception {
+        try (var ignite = IgniteClient.builder()
+                .addresses("127.0.0.1:10800")
+                .build()
+        ) {
+            getArtistsDistribution(ignite);
+        }
+    }
 
-	public KeyValueApp() throws Exception {
-		AppConfiguration cfg = new AppConfiguration(true);
+    private static void getArtistsDistribution(Ignite ignite) {
 
-		try (Ignite ignite = Ignition.start(cfg)) {
-			DataLoader.dropTables(ignite);
-			DataLoader.createTables(ignite);
-			DataLoader.populateTables(ignite);
-			IgniteCache<Integer, Artist> artistCache = ignite.cache(ARTIST);
-			artistCache.enableStatistics(true);
+        var artistCache = ignite.tables().table("Artist").keyValueView(Integer.class, Artist.class);
 
-			getArtistsDistribution(ignite);
-		}
-	}
+        for (int artistKey = 1; artistKey < 100; artistKey++) {
+            Artist artist = artistCache.get(null, artistKey);
 
-	private static void getArtistsDistribution(Ignite ignite) {
+            /**
+             * TODO #1: print partitions and nodes every artistKey is mapped to.
+             * Hint, use ignite.affinity(...).partition(...) and .mapPartitionToNode(...) methods.
+             */
 
-		IgniteCache<Integer, Artist> artistCache = ignite.cache(ARTIST);
-		//CacheMetrics cm = artistCache.metrics();
+            System.out.println(artist);
+        }
 
-		for (int artistKey = 1; artistKey < 100; artistKey++) {
-			Artist artist = artistCache.get(artistKey);
-			Affinity<Object> affinity = ignite.affinity(ARTIST);
-			int partition = affinity.partition(artist);
-			ClusterNode node = affinity.mapPartitionToNode(partition);
-
-			System.out.printf("%s - P#%d - Node(%s)\n", artist, partition, node.id());
-		}
-	}
-
+    }
 }

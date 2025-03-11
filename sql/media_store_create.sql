@@ -1,12 +1,47 @@
---    This SQL sript is derived from the Chinook database distributed under the license above. The script is adopted to
---    the Ignite SQL syntax (ANSI-99).
+/*
+    Copyright (c) 2008-2017 Luis Rocha
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+    documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+    rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
+    persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+    Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+    OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/*
+    This SQL sript is derived from the Chinook database distributed under the license above. The script is adopted to
+    the Ignite SQL syntax (ANSI-99).
+ */
+
+DROP TABLE IF EXISTS Album;
+DROP TABLE IF EXISTS Artist;
+DROP TABLE IF EXISTS Customer;
+DROP TABLE IF EXISTS Employee;
+DROP TABLE IF EXISTS Genre;
+DROP TABLE IF EXISTS Invoice;
+DROP TABLE IF EXISTS InvoiceLine;
+DROP TABLE IF EXISTS MediaType;
+DROP TABLE IF EXISTS Playlist;
+DROP TABLE IF EXISTS PlaylistTrack;
+DROP TABLE IF EXISTS Track;
+
+DROP ZONE IF EXISTS Chinook;
+DROP ZONE IF EXISTS ChinookReplicated;
+
+CREATE ZONE IF NOT EXISTS Chinook WITH replicas=2, storage_profiles='default';
+CREATE ZONE IF NOT EXISTS ChinookReplicated WITH replicas=3, partitions=25, storage_profiles='default';
 
 CREATE TABLE Artist
 (
     ArtistId INT,
     Name VARCHAR(120),
     PRIMARY KEY (ArtistId)
-) WITH "template=partitioned, backups=1, CACHE_NAME=Artist, VALUE_TYPE=org.gridgain.model.Artist";
+) ZONE chinook;
 
 CREATE TABLE Album
 (
@@ -14,8 +49,7 @@ CREATE TABLE Album
     Title VARCHAR(160),
     ArtistId INT,
     PRIMARY KEY (AlbumId, ArtistId)
-) WITH "template=partitioned, backups=1, affinityKey=ArtistId, CACHE_NAME=Album,
-        KEY_TYPE=org.gridgain.model.AlbumKey, VALUE_TYPE=org.gridgain.model.Album";
+) COLOCATE BY (ArtistId) ZONE chinook ;
 
 CREATE TABLE Customer
 (
@@ -33,7 +67,7 @@ CREATE TABLE Customer
     Email VARCHAR(60),
     SupportRepId INT,
     PRIMARY KEY (CustomerId)
-) WITH "template=partitioned, backups=1, CACHE_NAME=Customer, VALUE_TYPE=org.gridgain.model.Customer";
+) ZONE chinook;
 
 CREATE TABLE Invoice
 (
@@ -47,8 +81,7 @@ CREATE TABLE Invoice
     BillingPostalCode VARCHAR(10),
     Total DECIMAL(10,2),
     PRIMARY KEY  (InvoiceId, CustomerId)
-) WITH "template=partitioned, backups=1, affinityKey=CustomerId, CACHE_NAME=Invoice,
-        KEY_TYPE=org.gridgain.model.InvoiceKey, VALUE_TYPE=org.gridgain.model.Invoice";
+) COLOCATE BY (CustomerId) ZONE chinook;
 
 CREATE TABLE InvoiceLine
 (
@@ -59,8 +92,7 @@ CREATE TABLE InvoiceLine
     UnitPrice DECIMAL(10,2),
     Quantity INT,
     PRIMARY KEY (InvoiceLineId, CustomerId)
-) WITH "template=partitioned, backups=1, affinityKey=CustomerId, CACHE_NAME=InvoiceLine,
-        KEY_TYPE=org.gridgain.model.InvoiceLineKey, VALUE_TYPE=org.gridgain.model.InvoiceLine";
+) COLOCATE BY (CustomerId) ZONE chinook;
 
 CREATE TABLE Employee
 (
@@ -80,28 +112,28 @@ CREATE TABLE Employee
     Fax VARCHAR(24),
     Email VARCHAR(60),
     PRIMARY KEY (EmployeeId)
-) WITH "template=partitioned, backups=1, CACHE_NAME=Employee, VALUE_TYPE=org.gridgain.model.Employee";
+) ZONE chinook;
 
 CREATE TABLE Genre
 (
     GenreId INT,
     Name VARCHAR(120),
     PRIMARY KEY (GenreId)
-) WITH "template=replicated, CACHE_NAME=Genre, VALUE_TYPE=org.gridgain.model.Genre";
+) ZONE chinookReplicated;
 
 CREATE TABLE MediaType
 (
     MediaTypeId INT,
     Name VARCHAR(120),
     PRIMARY KEY (MediaTypeId)
-) WITH "template=replicated, CACHE_NAME=MediaType, VALUE_TYPE=org.gridgain.model.MediaType";
+) ZONE chinookReplicated;
 
 CREATE TABLE Playlist
 (
     PlaylistId INT,
     Name VARCHAR(120),
     PRIMARY KEY  (PlaylistId)
-) WITH "template=partitioned, backups=1, CACHE_NAME=PlayList, VALUE_TYPE=org.gridgain.model.PlayList";
+) ZONE chinook;
 
 CREATE TABLE PlaylistTrack
 (
@@ -110,8 +142,7 @@ CREATE TABLE PlaylistTrack
     ArtistId INT,
     Dummy TINYINT, /* to fix the issue saying that the table must have at least one non-primary key column */
     PRIMARY KEY (PlaylistId, TrackId, ArtistId)
-) WITH "template=partitioned, backups=1, affinityKey=ArtistId, CACHE_NAME=PlayListTrack,
-        KEY_TYPE=org.gridgain.model.PlaylistTrackKey, VALUE_TYPE=org.gridgain.model.PlayListTrack";
+) COLOCATE BY (ArtistId) ZONE chinook;
 
 CREATE TABLE Track
 (
@@ -125,6 +156,5 @@ CREATE TABLE Track
     Milliseconds INT,
     Bytes INT,
     UnitPrice DECIMAL(10,2),
-    PRIMARY KEY (TrackId)
-) WITH "template=partitioned, backups=1, CACHE_NAME=Track,
-        KEY_TYPE=org.gridgain.model.TrackKey, VALUE_TYPE=org.gridgain.model.Track";
+    PRIMARY KEY (TrackId, ArtistId)
+) COLOCATE BY (ArtistId) ZONE chinook;

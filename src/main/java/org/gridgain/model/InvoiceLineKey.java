@@ -16,24 +16,32 @@
  */
 package org.gridgain.model;
 
-import org.apache.ignite.cache.affinity.AffinityKeyMapped;
+import org.apache.ignite.catalog.annotations.Column;
+import org.apache.ignite.catalog.annotations.ColumnRef;
+import org.apache.ignite.catalog.annotations.Id;
+import org.apache.ignite.catalog.annotations.Table;
 
+@Table(
+        colocateBy = @ColumnRef("CustomerId")
+)
 public class InvoiceLineKey {
-    private Integer invoiceLineId;
+    @Column
+    @Id
+    private int invoiceLineId;
 
-    @AffinityKeyMapped
-    private Integer CUSTOMERID;
+    @Column
+    private int CUSTOMERID;
 
-    public InvoiceLineKey(Integer invoiceLineId, Integer customerId) {
+    public InvoiceLineKey(int invoiceLineId, int customerId) {
         this.invoiceLineId = invoiceLineId;
         this.CUSTOMERID = customerId;
     }
 
-    public Integer getInvoiceLineId() {
+    public int getInvoiceLineId() {
         return invoiceLineId;
     }
 
-    public Integer getCustomerId() {
+    public int getCustomerId() {
         return CUSTOMERID;
     }
 
@@ -51,7 +59,7 @@ public class InvoiceLineKey {
     }
 
     @Override public int hashCode() {
-        Integer result = invoiceLineId;
+        int result = invoiceLineId;
         result = 31 * result + CUSTOMERID;
         return result;
     }

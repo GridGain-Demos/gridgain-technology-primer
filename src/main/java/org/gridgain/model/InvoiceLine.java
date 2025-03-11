@@ -16,33 +16,37 @@
  */
 package org.gridgain.model;
 
-import org.apache.ignite.cache.query.annotations.QuerySqlField;
+import java.math.BigDecimal;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@ToString
 public class InvoiceLine {
-	@QuerySqlField
-	private Integer invoiceLineId;
-	@QuerySqlField
-	private Integer invoiceId;
-	@QuerySqlField
-	private Integer trackId;
-	@QuerySqlField
-	private Integer customerId;
-	@QuerySqlField
-	private Double unitPrice;
-	@QuerySqlField
-	private Integer quantity;
+    private int invoiceId;
 
+    private int trackId;
+
+    private BigDecimal unitPrice;
+
+    private int quantity;
+
+    public InvoiceLine(int invoiceId, int trackId, BigDecimal unitPrice, int quantity) {
+        this.invoiceId = invoiceId;
+        this.trackId = trackId;
+        this.unitPrice = unitPrice;
+        this.quantity = quantity;
+    }
+
+    public int getInvoiceId() {
+        return invoiceId;
+    }
+
+    public int getTrackId() {
+        return trackId;
+    }
+
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
 }
