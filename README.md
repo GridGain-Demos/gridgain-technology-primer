@@ -114,17 +114,18 @@ With the Media Store database loaded, you can check how Ignite distributed the r
 GridGain Nebula. You will see the tables created from SQLLine on the Caches Screen.
 <img width="1491" alt="image" src="https://github.com/user-attachments/assets/79006749-ea3a-4a99-9152-948d54862dc8" />
 
-2. Select different caches and observe the number of primary keys. <img width="1378" alt="image" src="https://github.com/user-attachments/assets/d4e2b7ae-087b-42c7-913f-b7fe57d645b3" />
+2. Select different caches and observe the number of primary keys.
+<img width="1378" alt="image" src="https://github.com/user-attachments/assets/d4e2b7ae-087b-42c7-913f-b7fe57d645b3" />
 
 You can verify the same on your SQLLine window.
 
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/24051781-0293-494b-8f14-bf57cbfc9755" />
 
-4. Optional- scale out the cluster by the third node. You'll see that some partitions were rebalanced to the new node.
+3. Optional- scale out the cluster by the third node. You'll see that some partitions were rebalanced to the new node.
 <img width="1376" alt="image" src="https://github.com/user-attachments/assets/7e3f172c-0537-4177-b061-288eb68bb969" />
 
 
-## Affinity Co-location - Optimizing Complex SQL Queries With JOINs
+## Affinity Colocation - Optimizing Complex SQL Queries With JOINs
 
 Ignite supports SQL for data processing including distributed joins, grouping and sorting. In this section, you're 
 going to run basic SQL operations as well as more advanced ones.
@@ -141,7 +142,7 @@ going to run basic SQL operations as well as more advanced ones.
     GROUP BY trackid, name ORDER BY duration DESC LIMIT 20;
     ```
 
-## Running Compute Tasks Co-located with the Data
+## Running Compute Tasks Colocated with the Data
 
 Run `org.gridgain.app.ComputeApp` that uses Apache Ignite compute capabilities for the calculation of top-5 paying customers.
 The compute task executes on every cluster node. It iterates through local records and responds to the application that 
@@ -193,23 +194,23 @@ JOIN with the `Artist` table:
    ```
 
     Once you run the query, you'll see that the `artist` column is blank for some records. That's because `Track` and 
-    `Artist` tables are not co-located and the nodes don't have all data available locally during the join phase.
+    `Artist` tables are not colocated and the nodes don't have all data available locally during the join phase.
    <img width="1476" alt="image" src="https://github.com/user-attachments/assets/1da233e1-bef6-45a6-aa46-0d6980d79bde" />
     
 3. Allow the non-colocated joins by enabling the `Allow non-colocated joins` checkbox on the GridGain Nebula screen. Run the query again to see a complete and correct result.
    <img width="1086" alt="image" src="https://github.com/user-attachments/assets/8d6bb24c-51db-4955-a91e-728483b13e04" />
 
-### Joining Two Co-located Tables
+### Joining Two Colocated Tables
 
 The non-colocated joins used above come with a performance penalty, i.e., if the nodes are shuffling large data sets
-during the join phase, your performance will be impacted. However, it's possible to co-locate `Track` and `Artist` tables, and
+during the join phase, your performance will be impacted. However, it's possible to colocate `Track` and `Artist` tables, and
 avoid the usage of the non-colocated joins:
 
 1. Search for the `CREATE TABLE Track` command in the `media_store_create.sql` file.
 
 2. Replace `PRIMARY KEY (TrackId)` with `PRIMARY KEY (TrackId, ArtistId)`.
 
-3. Co-locate Tracks with Artist by adding `affinityKey=ArtistId` to the parameters list of the `WITH ...` operator.
+3. Colocate Tracks with Artist by adding `affinityKey=ArtistId` to the parameters list of the `WITH ...` operator.
 
 4. The above mentioned changes are available in the file `media_store_create_colocated.sql`. We will drop all the tables from SQLLine terminal(earlier used for creating and populating the cache). Stop the running GridGain server(s). Remove the `.txt` extension of TrackKey.java.txt file so that now you have TrackKey.java in your org.gridgain.model folder.
 
