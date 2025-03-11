@@ -142,7 +142,7 @@ going to run basic SQL operations as well as more advanced ones.
     GROUP BY trackid, name ORDER BY duration DESC LIMIT 20;
     ```
 
-## Running Compute Tasks Colocated with the Data
+## Running Distributed Compute Tasks
 
 Run `org.gridgain.app.ComputeApp` that uses Apache Ignite compute capabilities for the calculation of top-5 paying customers.
 The compute task executes on every cluster node. It iterates through local records and responds to the application that 
