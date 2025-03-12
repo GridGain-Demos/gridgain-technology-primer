@@ -25,9 +25,9 @@ for more details. The steps that follow assume Java 8 or 11.
 2. Optional- open the project in your favourite IDE such as IntelliJ or Eclipse, or just use a simple text editor
 and command-line instructions prepared for all the samples.    
 
-## Starting Ignite Cluster
+## Starting GridGain Cluster
 
-Start a two-node Ignite cluster:
+You will not have to run GridGain separately because we will be starting the GridGain nodes(and cluster) from the application itself. This is called the "embedded mode". Start a two-node GridGain cluster:
 
 1. Open a terminal window and navigate to the root directory of this project.
 
