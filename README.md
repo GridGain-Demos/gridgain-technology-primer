@@ -1,4 +1,4 @@
-# [Foundation Course] GridGain Acceleration Workshop: Key Design Principles for Building Data-Intensive Applications
+# GridGain Acceleration Workshop: Key Design Principles for Building Data-Intensive Applications
 
 Welcome to the GridGain Acceleration Workshop! This repository provides a practical introduction to GridGain, designed to help you explore its potential for enhancing application performance and scalability. Our goal is to demonstrate how GridGain can be effectively utilized within your project. This workshop, structured for both guided demonstrations and independent exploration, will walk you through key concepts and hands-on examples, allowing you to experience and apply GridGain's capabilities.
  
