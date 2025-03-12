@@ -124,24 +124,6 @@ You can verify the same on your SQLLine window.
 3. Optional- scale out the cluster by the third node. You'll see that some partitions were rebalanced to the new node.
 <img width="1376" alt="image" src="https://github.com/user-attachments/assets/7e3f172c-0537-4177-b061-288eb68bb969" />
 
-
-## Affinity Colocation - Optimizing Complex SQL Queries With JOINs
-
-Ignite supports SQL for data processing including distributed joins, grouping and sorting. In this section, you're 
-going to run basic SQL operations as well as more advanced ones.
-
-### Querying Single Table
-
-1. Go to the [Queries Screen](https://www.gridgain.com/docs/control-center/latest/querying) of GridGain Nebula.
- 
-2. Run the following query to find top-20 longest tracks:
-
-    ```sql
-    SELECT trackid, name, MAX(milliseconds / (1000 * 60)) as duration FROM track
-    WHERE genreId < 17
-    GROUP BY trackid, name ORDER BY duration DESC LIMIT 20;
-    ```
-
 ## Running Distributed Compute Tasks
 
 Run `org.gridgain.app.ComputeApp` that uses Apache Ignite compute capabilities for the calculation of top-5 paying customers.
@@ -179,6 +161,23 @@ You can notice that the computation has happened on all the nodes.
     ```
 <img width="818" alt="image" src="https://github.com/user-attachments/assets/234e32c7-9c4d-49a5-8738-a9bd151e206a" />
 
+
+## Affinity Colocation - Optimizing Complex SQL Queries With JOINs
+
+Ignite supports SQL for data processing including distributed joins, grouping and sorting. In this section, you're 
+going to run basic SQL operations as well as more advanced ones.
+
+### Querying Single Table
+
+1. Go to the [Queries Screen](https://www.gridgain.com/docs/control-center/latest/querying) of GridGain Nebula.
+ 
+2. Run the following query to find top-20 longest tracks:
+
+    ```sql
+    SELECT trackid, name, MAX(milliseconds / (1000 * 60)) as duration FROM track
+    WHERE genreId < 17
+    GROUP BY trackid, name ORDER BY duration DESC LIMIT 20;
+    ```
 ### Joining Two Non-Colocated Tables
 
 1. Modify the previous query by adding information about an author. You do this by doing a LEFT
@@ -247,4 +246,5 @@ avoid the usage of the non-colocated joins:
 <img width="1061" alt="image" src="https://github.com/user-attachments/assets/af1ae8bf-76bc-4ff7-9287-a25d736a4f57" />
 
 
+We got an overview of how data is stored in GridGain cluster(distributed across the nodes and partitioned), how we can enforce records of more than 1 caches to reside on the same node(using affinity key; and the affinity key should be a part of the primary key), how we can perform colocated joins and how can we distribute a compute tasks across all the nodes.
 
