@@ -52,7 +52,7 @@ to download the module that connects to GridGain Nebula.
 Both nodes auto-discover each other and you'll have a two-nodes cluster ready for exercises. On both the terminals, you will notice a token being printed. We need this token in the next step.
 ```bash
 >>> +---------------------------------------------------------------------------------------------------+
->>> | If you are already using Control Center, you can add the cluster manually using a one-time token: |
+>>>   If you are already using Control Center, you can add the cluster manually using a one-time token: 
 ```
  
 ## Connecting to GridGain Nebula
@@ -64,6 +64,7 @@ records, to execute and optimize SQL queries, and to monitor the state of the cl
 2. Create an account to sign in into GridGain Nebula.
 
 3. Select "Attach GridGain" option, which opens a modal panel to enter the connection token(which got displayed on the terminal when you started the server) of the GridGain cluster.
+
 ![image](https://github.com/user-attachments/assets/c9b9406c-3d82-4d65-88a4-14090f22cdab)
 
 Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster as instructed below. The default token expires in 5 minutes after the cluster startup time.
