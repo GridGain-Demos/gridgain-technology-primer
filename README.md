@@ -20,7 +20,7 @@ for more details. The steps that follow assume Java 8 or 11.
 
 1. Clone the training project with Git or download it as an archive:
     ```bash
-    git clone https://github.com/GridGain-Demos/ignite-essentials-developer-training.git
+    git clone https://github.com/GridGain-Demos/gridgain-technology-primer.git
     ```
 
 2. Optional- open the project in your favourite IDE such as IntelliJ or Eclipse, or just use a simple text editor
