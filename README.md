@@ -52,7 +52,7 @@ to download the module that connects to GridGain Nebula.
 Both nodes auto-discover each other and you'll have a two-nodes cluster ready for exercises.
  
 ## Connecting to GridGain Nebula
-You use [GridGain Nebula](https://portal.gridgain.com) throughout the course to see how Ignite distributes 
+You use [GridGain Nebula](https://portal.gridgain.com) throughout the course to see how GridGain distributes 
 records, to execute and optimize SQL queries, and to monitor the state of the cluster.
 
 1. Go to [https://portal.gridgain.com](https://portal.gridgain.com).
@@ -104,7 +104,7 @@ Keep the connection open as you'll use it for following exercises.
 
 ## Data Partitioning - Checking Data Distribution
 
-With the Media Store database loaded, you can check how Ignite distributed the records within the cluster:
+Data partitioning is a method of subdividing large sets of data into smaller chunks and distributing them between all server nodes. With the Media Store database loaded, you can check how GridGain distributed the records within the cluster:
 
 1. Open the [Caches Screen](https://www.gridgain.com/docs/control-center/latest/caches#partition-distribution) of 
 GridGain Nebula. You will see the tables created from SQLLine on the Caches Screen.
@@ -135,7 +135,7 @@ merges partial results.
 You can see the overall result i.e. the top 5 highest paying customers on the same terminal (observe that some computations also be happened on this terminal locally and then the cumulative results are shown):
 <img width="819" alt="image" src="https://github.com/user-attachments/assets/3863c933-d888-4ede-aedc-9e8828efef5b" />
 
-3. Check the logs of the `ServerStartup` processes (your Ignite server nodes) to see that the calculation
+3. Check the logs of the `ServerStartup` processes (your GridGain server nodes) to see that the calculation
 was executed across the cluster.
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/dbb96871-751d-471e-84c4-1dcaa802fd6d" />
 
@@ -160,7 +160,7 @@ You can notice that the computation has happened on all the nodes.
 
 ## Affinity Colocation - Optimizing Complex SQL Queries With JOINs
 
-Ignite supports SQL for data processing including distributed joins, grouping and sorting. In this section, you're 
+GridGain supports SQL for data processing including distributed joins, grouping and sorting. In this section, you're 
 going to run basic SQL operations as well as more advanced ones.
 
 ### Querying Single Table
