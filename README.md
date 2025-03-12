@@ -1,8 +1,7 @@
-# [Foundation Course] Apache Ignite Essentials: Key Design Principles for Building Data-Intensive Applications
+# [Foundation Course] GridGain Acceleration Workshop: Key Design Principles for Building Data-Intensive Applications
 
-This project is designed for a free instructor-led training on the Ignite essential capabilities and architecture internals.
-Check [the complete schedule](https://www.gridgain.com/products/services/training/apache-ignite-workshop-Key-design-principles-for-building-data-intensive-applications) and join one of our upcoming training sessions.
-
+Welcome to the GridGain Acceleration Workshop! This repository provides a practical introduction to GridGain, designed to help you explore its potential for enhancing application performance and scalability. Our goal is to demonstrate how GridGain can be effectively utilized within your project. This workshop, structured for both guided demonstrations and independent exploration, will walk you through key concepts and hands-on examples, allowing you to experience and apply GridGain's capabilities.
+ 
 ## Setting Up Environment
 
 * Java Developer Kit, version 8 or 11
