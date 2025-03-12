@@ -94,10 +94,13 @@ Now you need to create a Media Store schema and load the cluster with sample dat
 		
 		
 	You appear to have not connected to any node yet. Do you want to connect to the default node http://localhost:10300? [Y/n] 
-
+   ```
+   Do not be surprised if it does not connect you to the cluster even after selecting yes option. Explicityly connect to node1.
+   ```bash
    connect http://node1:10300
    ```
-   
+   <img width="418" alt="image" src="https://github.com/user-attachments/assets/fff5b899-27d6-4cd7-a7e8-4443ac727d4d" />
+
    c. Execute SQL command to create the tables.
    
    ```bash
