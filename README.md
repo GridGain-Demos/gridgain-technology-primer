@@ -10,11 +10,8 @@ Check [the complete schedule](https://www.gridgain.com/products/services/trainin
 * Your favorite IDE, such as IntelliJ IDEA, or Eclipse, or a simple text editor.
 
 This project will also work with Java 17, but additional options need
-to be specified on the command-line. You can use the supplied arguments
-file like this:
-   ```bash
-    java @src/main/resources/j17.params
-   ```
+to be specified on the command-line. You can use `@src/main/resources/j17.params` argument
+after `java` command so that the parameters from the j17.params file are picked up while executing the command.
 
 See the [Ignite documentation](https://ignite.apache.org/docs/latest/setup#running-ignite-with-java-11-or-later)
 for more details. The steps that follow assume Java 8 or 11.
