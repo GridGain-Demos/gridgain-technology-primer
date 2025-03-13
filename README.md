@@ -192,6 +192,11 @@ going to run basic SQL operations as well as more advanced ones.
  
  ![image](https://github.com/user-attachments/assets/be9083c3-faf7-476b-b35d-4d6686a0013a)
 
+ #### Query Statistics
+
+ You can see the Explain Plan for a query that you have already run from the Query Statistics page. Here you can also notice performance of your query.
+
+ <img width="1476" alt="image" src="https://github.com/user-attachments/assets/956befc6-4034-437b-83d1-1b2170fe77af" />
 
 ### Joining Two Non-Colocated Tables
 
