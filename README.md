@@ -141,6 +141,11 @@ merges partial results.
 You can see the overall result i.e. the top 5 highest paying customers on the same terminal (observe that some computations also be happened on this terminal locally and then the cumulative results are shown):
 <img width="819" alt="image" src="https://github.com/user-attachments/assets/3863c933-d888-4ede-aedc-9e8828efef5b" />
 
+You can see the compute tasks under the "Compute" section of the portal.
+
+![image](https://github.com/user-attachments/assets/1cffb986-28e3-4205-a73c-af6b29cea264)
+
+
 3. Check the logs of the `ServerStartup` processes (your GridGain server nodes) to see that the calculation
 was executed across the cluster.
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/dbb96871-751d-471e-84c4-1dcaa802fd6d" />
