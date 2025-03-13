@@ -266,5 +266,9 @@ avoid the usage of the non-colocated joins:
 <img width="1061" alt="image" src="https://github.com/user-attachments/assets/af1ae8bf-76bc-4ff7-9287-a25d736a4f57" />
 
 
+Task for self-exploration: Compare the performance of non-colocated join query and its corresponding colocated join query.
+
+
+
 We got an overview of how data is stored in GridGain cluster(distributed across the nodes and partitioned), how we can enforce records of more than 1 caches to reside on the same node(using affinity key; and the affinity key should be a part of the primary key), how we can perform colocated joins and how can we distribute a compute tasks across all the nodes.
 
