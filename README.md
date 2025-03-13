@@ -28,15 +28,13 @@ We'll use the Control Center component to execute SQL queries and view cluster i
 2. Click the "Sign up" button
 3. Enter your details
 
-## Starting GridGain Cluster
-
-Start a three-node GridGain cluster:
+## Configure the Cloud Connector
 
 1. Open a terminal window and navigate to the root directory of this project.
 
-2. Open `src/main/resources/cloud-connector.conf` in your IDE or text editor
+1. Open `src/main/resources/cloud-connector.conf` in your IDE or text editor
 
-	```hcon
+	```
 	# Connector configuration properties
 	connector.cc-url   = https://portal.gridgain.com
 	connector.base-url = http://cccc:3200
@@ -45,14 +43,27 @@ Start a three-node GridGain cluster:
 	connector.password = connector.password
 	```
 
-3. Update the `connector.username` and `connector.password` values to the values you used to create your Nebula account.
+1. Update the `connector.username` and `connector.password` values to the values you used to create your Nebula account.
 
-4. Start your nodes using Docker Compose:
+## Starting the Cluster
+### GridGain
+	
+Start your nodes using Docker Compose:
+	
+```bash
+docker compose -f docker-compose.yml up
+```
+	   
+###or
+###Ignite
 
-    ```bash
-   docker compose -f docker-compose.yml up
-   ```
+Start your nodes using Docker Compose:
+	
+```bash
+docker compose -f docker-compose-ignite.yml up
+```
 
+## Initialise the Cluster
 5. Switch back to your browser and select `Attach GridGain`
 6. In the "Connector" dropdown, select `GridGain 9 Docker`
 7. The URL of the REST API is `http://node1:10300`
@@ -68,7 +79,7 @@ Start a three-node GridGain cluster:
 
 	![](images/initialize_cluster.png)
 	
-11. Set your Cluster name and add your license file, then click `Initialise`
+11. Set your Cluster name and add your license file if using GridGain, then click `Initialise`
  
 ## Creating Media Store Schema and Loading Data
 
@@ -77,10 +88,16 @@ Now you need to create a Media Store schema and load the cluster with sample dat
 1. Open a terminal window and navigate to the root directory of this project.
 2. Load the media store database:
 	
-	a. Start the Command Line Interface (CLI)
+	a. Start the **GridGain** Command Line Interface (CLI)
 	
     ```bash
    docker run -e LANG=C.UTF-8 -e LC_ALL=C.UTF-8 -v ./sql/media_store_create.sql:/opt/gridgain/sql/media_store_create.sql -v ./sql/media_store_populate.sql:/opt/gridgain/sql/media_store_populate.sql --rm --network gridgain9_default -it gridgain/gridgain9:latest cli
+   ```
+   
+	Or start the **Ignite** Command Line Interface (CLI)
+	
+    ```bash
+   docker run -e LANG=C.UTF-8 -e LC_ALL=C.UTF-8 -v ./config/media_store.sql:/opt/ignite/sql/media_store.sql --rm --network ignite3_default -it apacheignite/ignite:3.0.0 cli
    ```
    
    b. Connect to the cluster.
@@ -100,14 +117,29 @@ Now you need to create a Media Store schema and load the cluster with sample dat
    
    c. Execute SQL command to create the tables.
    
+   **GridGain**
+   
    ```bash
    sql --file=/opt/gridgain/sql/media_store_create.sql
+    ```
+	or **Ignite**
+   
+   ```bash
+   sql --file=/opt/ignite/sql/media_store_create.sql
     ```
     
    c. Execute SQL command to load the sample data.
 
+   **GridGain**
+
    ```bash
    sql --file=/opt/gridgain/sql/media_store_populate.sql
+    ```
+    
+   or **Ignite**
+
+   ```bash
+   sql --file=/opt/ignite/sql/media_store_populate.sql
     ```
 
 Keep the connection open as you'll use it for following exercises.
@@ -165,15 +197,32 @@ merges partial results.
 
 1. Build an executable JAR with the applications' classes (or just start the app with IntelliJ IDEA or Eclipse):
 
+	**GridGain**
+
     ```bash
     mvn clean package 
     ```
+    
+    or **Ignite**
+
+    ```bash
+    mvn -p ignite clean package 
+    ```
+    
 2. Load the code into your cluster:
 
 	a. Start the CLI.
+	
+	**GridGain**
 
     ```bash
-   docker run -e LANG=C.UTF-8 -e LC_ALL=C.UTF-8 -v ./target/GridGain-essentials-developer-training-1.0-SNAPSHOT.jar:/opt/GridGain/downloads/GridGain-essentials-developer-training-1.0-SNAPSHOT.jar --rm --network GridGain3_default -it apacheGridGain/GridGain:3.0.0 cli
+   docker run -e LANG=C.UTF-8 -e LC_ALL=C.UTF-8 -v ./target/gridgain-technology-primer-1.0-SNAPSHOT.jar:/opt/gridgain/downloads/gridgain-technology-primer-1.0-SNAPSHOT.jar --rm --network GridGain3_default -it gridgain/gridgain:latest cli
+   ```
+   
+   or **Ignite**
+   
+   ```bash
+   docker run -e LANG=C.UTF-8 -e LC_ALL=C.UTF-8 -v ./target/gridgain-technology-primer-1.0-SNAPSHOT.jar:/opt/ignite/downloads/gridgain-technology-primer-1.0-SNAPSHOT.jar --rm --network GridGain3_default -it apacheignite/ignite:3.0.0 cli
    ```
 
 	b. Connect to the cluster.
@@ -184,7 +233,16 @@ merges partial results.
    
    c. Deploy the code to the cluster.
    
+	**GridGain**
+
    ```bash
-   cluster unit deploy --version 1.0.0 --path=/opt/GridGain/downloads/GridGain-essentials-developer-training-1.0-SNAPSHOT.jar essentialsCompute
+   cluster unit deploy --version 1.0.0 --path=/opt/gridgain/downloads/gridgain-technology-primer-1.0-SNAPSHOT.jar essentialsCompute
     ```
+   
+   or **Ignite**
+   
+   ```bash
+   cluster unit deploy --version 1.0.0 --path=/opt/ignite/downloads/gridgain-technology-primer-1.0-SNAPSHOT.jar essentialsCompute
+    ```
+
 3. Execute the `ComputeApp` program from your IDE. 

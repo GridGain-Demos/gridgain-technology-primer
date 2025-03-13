@@ -12,7 +12,7 @@ x-gridgain-def:
   image: gridgain/gridgain9:${GRIDGAIN9_VERSION:-latest}
   environment:
     JVM_MAX_MEM: "4g"
-    JVM_MIN_MEM: "4g"
+    JVM_MIN_MEM: "2g"
   configs:
     - source: node_config
       target: /opt/gridgain/etc/gridgain-config.conf
@@ -30,12 +30,12 @@ services:
     ports:
       - 10301:10300
       - 10801:10800
- # node3:
- #   << : *gridgain-def
- #   command: --node-name node3
- #   ports:
- #     - 10302:10300
- #     - 10802:10800
+#  node3:
+#    << : *gridgain-def
+#    command: --node-name node3
+#    ports:
+#      - 10302:10300
+#      - 10802:10800
   cccc:
     image: gridgain/cloud-connector:2025-02-14
     volumes:
