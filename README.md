@@ -18,10 +18,8 @@ for more details. The steps that follow assume Java 8 or 11.
 ## Clone The Project
 
 1. Clone the training project with Git or download it as an archive:
-    ```bash
-    git clone https://github.com/GridGain-Demos/gridgain-technology-primer.git
-    ```
-
+    <pre><code>git clone https://github.com/GridGain-Demos/gridgain-technology-primer.git</code></pre>
+    
 2. Optional- open the project in your favourite IDE such as IntelliJ or Eclipse, or just use a simple text editor
 and command-line instructions prepared for all the samples.    
 
@@ -33,27 +31,21 @@ You will not have to run GridGain separately because we will be starting the Gri
 
 2. Use Maven to create a core executable JAR with all the dependencies (Note, build the JAR even if you plan to
 start the sample code with IntelliJ IDEA or Eclipse. The JAR is used by other tools throughout the class):
-    ```bash
-    mvn clean package
-    ```
+    <pre><code>mvn clean package</code></pre>
+    
    If you see build errors, it may be because a firewall or proxy server is blocking access to
 [GridGain's External Maven Repo](https://www.gridgainsystems.com/nexus/content/repositories/external) which is used
 to download the module that connects to GridGain Nebula.
 3. Start the first cluster node (or just start the app with IntelliJ IDEA or Eclipse):
-    ```bash
-    java -cp libs/core.jar org/gridgain/server/IgniteServer
-    ```
+    <pre><code>java -cp libs/core.jar org/gridgain/server/IgniteServer</code></pre>
 
 4. Open another terminal window and start the second node:
-    ```bash
-    java -cp libs/core.jar org/gridgain/server/IgniteServer
-    ```
+    <pre><code>java -cp libs/core.jar org/gridgain/server/IgniteServer</code></pre>
 
 Both nodes auto-discover each other and you'll have a two-nodes cluster ready for exercises. On both the terminals, you will notice a token being printed. We need this token in the next step.
-```bash
->>> +---------------------------------------------------------------------------------------------------+
->>>   If you are already using Control Center, you can add the cluster manually using a one-time token: 
-```
+<pre>>>> +---------------------------------------------------------------------------------------------------+
+>>> | If you are already using Control Center, you can add the cluster manually using a one-time token: |
+</pre>
  
 ## Connecting to GridGain Nebula
 You use [GridGain Nebula](https://portal.gridgain.com) throughout the course to see how GridGain distributes 
@@ -75,9 +67,7 @@ Just in case you get error regarding connection token being invalid or expired, 
     [management.sh|bat script](https://www.gridgain.com/docs/control-center/latest/clusters#generating-a-token) of the 
     Ignite Agent distribution package, you just call it directly with this training to skip extra downloads): 
     
-  ```bash
-  java -cp libs/core.jar org.gridgain.control.agent.commandline.ManagementCommandHandler --token
-  ```
+  <pre><code>java -cp libs/core.jar org.gridgain.control.agent.commandline.ManagementCommandHandler --token</code></pre>
      
 More information on [Registering the cluster](https://www.gridgain.com/docs/control-center/latest/clusters#adding-clusters) with GridGain Nebula 
 using the token.
@@ -89,22 +79,19 @@ Now you need to create a Media Store schema and load the cluster with sample dat
 1. Open a terminal window and navigate to the root directory of this project.
    
 2. We will use the executable JAR created earlier and launch a SQLLine process:
-    ```bash
-    java -cp libs/core.jar sqlline.SqlLine
-    ```
+ 
+    <pre><code>java -cp libs/core.jar sqlline.SqlLine</code></pre>
+    
    
 3. Connect to the cluster:
-    ```bash
-    !connect jdbc:ignite:thin://127.0.0.1/ ignite ignite
-    ```
+   <pre><code>!connect jdbc:ignite:thin://127.0.0.1/ ignite ignite</code></pre>
+
 
 4. Create and load the Media Store database:
-    ```bash
-    !run sql/media_store_create.sql
-    ```
-    ```bash
-    !run sql/media_store_populate.sql
-    ```
+    <pre><code>!run sql/media_store_create.sql</code></pre>
+    
+    <pre><code>!run sql/media_store_populate.sql</code></pre>
+   
 
 Keep the connection open as you'll use it for following exercises.
 
@@ -135,9 +122,8 @@ merges partial results.
 1. In the earlier step of building the project, you can observe 2 jars being built in the libs folder of the project. We will now work with the apps.jar in this section.
 
 2. Run the app in the terminal:
-    ```bash
-    java -cp libs/apps.jar org.gridgain.app.ComputeApp
-    ```
+    <pre><code>java -cp libs/apps.jar org.gridgain.app.ComputeApp</code></pre>
+    
 You can see the overall result i.e. the top 5 highest paying customers on the same terminal (observe that some computations also be happened on this terminal locally and then the cumulative results are shown):
 <img width="819" alt="image" src="https://github.com/user-attachments/assets/3863c933-d888-4ede-aedc-9e8828efef5b" />
 
@@ -159,13 +145,11 @@ You can notice that the computation has happened on all the nodes.
 1. Update the logic to return top-10 paying customers. (Hint: Modify the variable `customersCount` value in `ComputeApp.java`.
 
 2. Re-build an executable JAR with the applications' classes (or just start the app with IntelliJ IDEA or Eclipse):
-    ```bash
-    mvn clean package 
-    ```
+    <pre><code>mvn clean package </code></pre>
+    
 3. Run the app again:
-    ```bash
-    java -cp libs/apps.jar org.gridgain.app.ComputeApp
-    ```
+    <pre><code>java -cp libs/apps.jar org.gridgain.app.ComputeApp</code></pre>
+    
 <img width="818" alt="image" src="https://github.com/user-attachments/assets/234e32c7-9c4d-49a5-8738-a9bd151e206a" />
 
 
@@ -234,33 +218,26 @@ avoid the usage of the non-colocated joins:
 4. The above mentioned changes are available in the file `media_store_create_colocated.sql`. We will drop all the tables from SQLLine terminal(earlier used for creating and populating the cache). Stop the running GridGain server(s). Remove the `.txt` extension of TrackKey.java.txt file so that now you have TrackKey.java in your org.gridgain.model folder.
 
     * Build the project:
-        ```bash
-        mvn clean package
-        ```
+        <pre><code>mvn clean package</code></pre>
+        
    * Start the server(s):
-        ```bash
-        java -cp libs/core.jar org/gridgain/server/IgniteServer
-        ``` 
+        <pre><code>java -cp libs/core.jar org/gridgain/server/IgniteServer</code></pre>
+         
     * Launch SQLine from a terminal window (in case you exited the earlier one):
-        ```bash
-        java -cp libs/core.jar sqlline.SqlLine
-        ```
+        <pre><code>java -cp libs/core.jar sqlline.SqlLine</code></pre>
+        
    * Connect to the cluster:
-        ```bash
-        !connect jdbc:ignite:thin://127.0.0.1/ ignite ignite
-        ```       
+        <pre><code>!connect jdbc:ignite:thin://127.0.0.1/ ignite ignite</code></pre>
+               
     * Drop the existing tables from SQLLine. Confirm if it asks you whether you want to delete all the tables.
-        ```bash
-        !dropall
-        ```
+        <pre><code>!dropall</code></pre>
+        
     * Create the tables using the script. This time the script contains affinity key, which mentions what data should reside on the same node.
-        ```bash
-       !run sql/media_store_create_colocated.sql
-       ```
+        <pre><code>!run sql/media_store_create_colocated.sql</code></pre>
+       
     * Load the Media Store database:
-        ```bash
-        !run sql/media_store_populate.sql
-        ```
+        <pre><code>!run sql/media_store_populate.sql</code></pre>
+        
         
 5. In GridGain Nebula, run that query once again(without selecting the checkbox and you'll see that all the `artist` columns are filled in because now all the Tracks are stored together with their Artists on the same cluster node.
 <img width="1061" alt="image" src="https://github.com/user-attachments/assets/af1ae8bf-76bc-4ff7-9287-a25d736a4f57" />
