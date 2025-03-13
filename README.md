@@ -1,6 +1,6 @@
 # GridGain Acceleration Workshop: Concepts to Practical Mastery
 
-Welcome to the GridGain Acceleration Workshop! This repository provides a practical introduction to GridGain, designed to help you explore its potential for enhancing application performance and scalability. Our goal is to demonstrate how GridGain can be effectively utilized within your project. This workshop, structured for both guided demonstrations and independent exploration, will walk you through key concepts and hands-on examples, allowing you to experience and apply GridGain's capabilities.
+Welcome to the GridGain Acceleration Workshop! GridGain is an in-memory storage and computing platform that accelerates applications by providing distributed caching, processing, and SQL capabilities. This repository provides a practical introduction to GridGain, designed to help you explore its potential for enhancing application performance and scalability. Our goal is to demonstrate how GridGain can be effectively utilized within your project. This workshop, structured for both guided demonstrations and independent exploration, will walk you through key concepts and hands-on examples, allowing you to experience and apply GridGain's capabilities.
  
 ## Setting Up Environment
 
@@ -11,6 +11,15 @@ Welcome to the GridGain Acceleration Workshop! This repository provides a practi
 This project will also work with Java 17, but additional options need
 to be specified on the command-line. You can use `@src/main/resources/j17.params` argument
 after `java` command so that the parameters from the j17.params file are picked up while executing the command.
+
+#### Introduction to Frequently Used Terminologies
+* GridGain Cluster
+* Server Node
+* GridGain Nebula
+* Control Center
+* SQLLine
+* Caches
+* Compute Task
 
 See the [documentation](https://ignite.apache.org/docs/latest/setup#running-ignite-with-java-11-or-later)
 for more details. The steps that follow assume Java 8 or 11.
