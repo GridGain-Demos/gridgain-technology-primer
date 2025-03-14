@@ -1,5 +1,5 @@
 ## Connect to GridGain Control-Center
-You use [GridGain Nebula](https://portal.gridgain.com) Control Center throughout this course to see how GridGain distributes 
+We will use [GridGain Nebula](https://portal.gridgain.com) Control Center throughout this course to see how GridGain distributes 
 records, to execute and optimize SQL queries, and to monitor the state of the cluster. If you want to run Control-Center on-prem, you will need its license. [Contact GridGain](https://www.gridgain.com/contact) for the same.
 
 1. Go to [https://portal.gridgain.com](https://portal.gridgain.com).
