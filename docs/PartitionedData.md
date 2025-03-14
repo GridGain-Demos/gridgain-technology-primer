@@ -15,3 +15,7 @@ You can verify the same on your SQLLine window.
 
 3. Optional- scale out the cluster by the third node. You'll see that some partitions were rebalanced to the new node.
 <img width="1376" alt="image" src="https://github.com/user-attachments/assets/7e3f172c-0537-4177-b061-288eb68bb969" />
+
+Next Step:[Distribute and Run Computation Task](ComputeTask.md)
+
+Back to [Main Page](../README.md)

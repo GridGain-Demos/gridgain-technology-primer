@@ -26,3 +26,7 @@ going to run basic SQL operations as well as more advanced ones.
  You can see the Explain Plan for a query that you have already run from the Query Statistics page. Here you can also notice performance of your query.
 
  <img width="1476" alt="image" src="https://github.com/user-attachments/assets/956befc6-4034-437b-83d1-1b2170fe77af" />
+
+Next Step:[Optimizing SQL Joins by Colocating Data](Affinity.md)
+
+Back to [Main Page](../README.md)

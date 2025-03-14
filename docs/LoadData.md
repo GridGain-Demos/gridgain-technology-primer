@@ -20,3 +20,7 @@ Now you need to create a Media Store schema and load the cluster with sample dat
    
 
 Keep the connection open as you'll use it for following exercises.
+
+Next Step:[Observe Data Distribution](PartitionedData.md)
+
+Back to [Main Page](../README.md)

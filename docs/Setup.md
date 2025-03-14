@@ -47,3 +47,8 @@ Both nodes auto-discover each other and you'll have a two-nodes cluster ready fo
 <pre>>>> +---------------------------------------------------------------------------------------------------+
 >>> | If you are already using Control Center, you can add the cluster manually using a one-time token: |
 </pre>
+
+
+Next Step:[Connect to GridGain Control Center](ControlCenter.md)
+
+Back to [Main Page](../README.md)

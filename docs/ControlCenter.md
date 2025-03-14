@@ -22,3 +22,7 @@ Just in case you get error regarding connection token being invalid or expired, 
      
 More information on [Registering the cluster](https://www.gridgain.com/docs/control-center/latest/clusters#adding-clusters) with GridGain Nebula 
 using the token.
+
+Next Step:[Load Data in GridGain Cluster](LoadData.md)
+
+Back to [Main Page](../README.md)

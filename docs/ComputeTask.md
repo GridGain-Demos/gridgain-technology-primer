@@ -36,3 +36,7 @@ You can notice that the computation has happened on all the nodes.
     <pre><code>java -cp libs/apps.jar org.gridgain.app.ComputeApp</code></pre>
     
 <img width="818" alt="image" src="https://github.com/user-attachments/assets/234e32c7-9c4d-49a5-8738-a9bd151e206a" />
+
+Next Step:[Running SQL Queries on GridGain Data](SQLqueries.md)
+
+Back to [Main Page](../README.md)

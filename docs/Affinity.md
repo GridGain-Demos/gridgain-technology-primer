@@ -64,3 +64,5 @@ avoid the usage of the non-colocated joins:
 
 
 Task for self-exploration: Compare the performance of non-colocated join query and its corresponding colocated join query.
+
+Back to [Main Page](../README.md)
