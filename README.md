@@ -19,11 +19,11 @@ You might come across the names GridGain and Apache Ignite. The GridGain platfor
 
  
 ## Setting Up Environment
-We will be spinning up a 2-node GridGain Community Edition cluster locally for this workshop. Note that we do not not recommend this cluster setup for production purposes. [Here](https://www.gridgain.com/docs/latest/installation-guide) are other ways of installing a GridGain cluster. You may even spin up a fully-managed cloud cluster on [GridGain Nebula](https://portal.gridgain.com/).
+We will be spinning up a 2-node GridGain Community Edition cluster locally for this workshop. Note that we do not not recommend this cluster setup for production purposes. [Here](https://www.gridgain.com/docs/latest/installation-guide) are other ways of installing a GridGain cluster. You may even spin up a fully-managed cloud cluster on [GridGain Nebula](https://portal.gridgain.com/):
 <img width="1411" alt="image" src="https://github.com/user-attachments/assets/67be946e-ef76-4ad4-9953-96ab1379593e" />
 
 
-Install the following:
+Install the following on your local machine:
 * Java Developer Kit, version 8 or 11 and set JAVA_HOME
 * Apache Maven 3.0 or later
 * Your favorite IDE, such as IntelliJ IDEA, or Eclipse, or a simple text editor.
