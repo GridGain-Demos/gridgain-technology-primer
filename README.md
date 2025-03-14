@@ -56,7 +56,7 @@ Start your nodes using Docker Compose:
 docker compose -f docker-compose.yml up
 ```
 	   
-###or
+or 
 ###Ignite
 
 Start your nodes using Docker Compose:
@@ -224,7 +224,8 @@ merges partial results.
    docker run -e LANG=C.UTF-8 -e LC_ALL=C.UTF-8 -v ./target/gridgain-technology-primer-1.0-SNAPSHOT.jar:/opt/gridgain/downloads/gridgain-technology-primer-1.0-SNAPSHOT.jar --rm --network GridGain3_default -it gridgain/gridgain:latest cli
    ```
    
-   or **Ignite**
+   or
+   **Ignite**
    
    ```bash
    docker run -e LANG=C.UTF-8 -e LC_ALL=C.UTF-8 -v ./target/gridgain-technology-primer-1.0-SNAPSHOT.jar:/opt/ignite/downloads/gridgain-technology-primer-1.0-SNAPSHOT.jar --rm --network GridGain3_default -it apacheignite/ignite:3.0.0 cli
@@ -244,7 +245,8 @@ merges partial results.
    cluster unit deploy --version 1.0.0 --path=/opt/gridgain/downloads/gridgain-technology-primer-1.0-SNAPSHOT.jar essentialsCompute
     ```
    
-   or **Ignite**
+   or
+   **Ignite**
    
    ```bash
    cluster unit deploy --version 1.0.0 --path=/opt/ignite/downloads/gridgain-technology-primer-1.0-SNAPSHOT.jar essentialsCompute
