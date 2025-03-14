@@ -81,9 +81,6 @@ public class ComputeApp {
      */
     private static class TopPayingCustomersTask implements MapReduceTask<Integer, Tuple, Tuple, TopCustomer[]> {
 
-        public TopPayingCustomersTask() {
-        }
-
         private Integer customerCount;
 
         @Override

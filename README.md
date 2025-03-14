@@ -30,6 +30,8 @@ We'll use the Control Center component to execute SQL queries and view cluster i
 
 ## Configure the Cloud Connector
 
+![](images/cloud_connector.png)
+
 1. Open a terminal window and navigate to the root directory of this project.
 
 1. Open `src/main/resources/cloud-connector.conf` in your IDE or text editor
