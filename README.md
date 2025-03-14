@@ -3,16 +3,6 @@
 Welcome to the GridGain Acceleration Workshop! GridGain is an in-memory storage and computing platform that accelerates applications by providing in-memory distributed caching as well as processing, plus provides ACID transactions. This repository provides a practical introduction to GridGain, designed to help you explore its potential for enhancing application performance and scalability. Our goal is to demonstrate how GridGain can be effectively utilized within your project. This workshop, structured for both guided demonstrations and independent exploration, will walk you through key concepts and hands-on examples, allowing you to experience and apply GridGain's capabilities.
 
 You might come across the names GridGain and Apache Ignite. The GridGain platform is built on Apache Ignite. The source code for Apache Ignite was originally contributed to the Apache Software Foundation by GridGain Systems. We will use the Community Edtion(CE) of GridGain platform in this workshop. The GridGain Community Edition is a source-available version of Apache Ignite which includes patches and updates not yet included in Ignite.
- 
-## Setting Up Environment
-
-* Java Developer Kit, version 8 or 11
-* Apache Maven 3.0 or later
-* Your favorite IDE, such as IntelliJ IDEA, or Eclipse, or a simple text editor.
-
-This project will also work with Java 17, but additional options need
-to be specified on the command-line. You can use `@src/main/resources/j17.params` argument
-after `java` command so that the parameters from the j17.params file are picked up while executing the command.
 
 #### Introduction to Frequently Used Terminologies
 * Server Node - A server node is the base computational and data storage unit in GridGain. Typically, you start a single server node per machine or container.
@@ -26,6 +16,21 @@ after `java` command so that the parameters from the j17.params file are picked 
 * Partitioned Cache Mode - All partitions are split equally between all server nodes. This mode is the most scalable mode as more the nodes you have, the more data you can store.
 * Replicated Cache Mode - All the data (every partition) is replicated to every node in the cluster. This mode provides the high availability of data. 
 * Compute Task - The ComputeTask interface in GridGain provides fine-grained control over job distribution and custom fail-over logic, allowing developers to implement complex distributed algorithms, enabling massive parallel processing and efficient handling of large datasets. GridGain provides a simplified MapReduce API for it.
+
+ 
+## Setting Up Environment
+We will be spinning up a 2-node GridGain Community Edition cluster locally for this workshop. Note that we do not not recommend this cluster setup for production purposes. [Here](https://www.gridgain.com/docs/latest/installation-guide) are other ways of installing a GridGain cluster. You may even spin up a fully-managed cloud cluster on [GridGain Nebula](https://portal.gridgain.com/).
+<img width="1411" alt="image" src="https://github.com/user-attachments/assets/67be946e-ef76-4ad4-9953-96ab1379593e" />
+
+
+Install the following:
+* Java Developer Kit, version 8 or 11 and set JAVA_HOME
+* Apache Maven 3.0 or later
+* Your favorite IDE, such as IntelliJ IDEA, or Eclipse, or a simple text editor.
+
+This project will also work with Java 17, but additional options need
+to be specified on the command-line. You can use `@src/main/resources/j17.params` argument
+after `java` command so that the parameters from the j17.params file are picked up while executing the command.
 
 See the [documentation](https://ignite.apache.org/docs/latest/setup#running-ignite-with-java-11-or-later)
 for more details. The steps that follow assume Java 8 or 11.
@@ -157,7 +162,7 @@ You can notice that the computation has happened on all the nodes.
 
 #### Modify the computation logic: 
 
-1. Update the logic to return top-10 paying customers. (Hint: Modify the variable `customersCount` value in `ComputeApp.java`.
+1. Update the logic to return top-10 paying customers (Hint: Modify the variable `customersCount` value in `ComputeApp.java`).
 
 2. Re-build an executable JAR with the applications' classes (or just start the app with IntelliJ IDEA or Eclipse):
     <pre><code>mvn clean package </code></pre>
