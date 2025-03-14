@@ -1,5 +1,5 @@
 # GridGain Technology Primer
-##Key Design Principles for Building Data-Intensive Applications
+## Key Design Principles for Building Data-Intensive Applications
 
 
 ## Prerequisites
@@ -58,7 +58,7 @@ docker compose -f docker-compose.yml up
 	   
 or
 
-###Ignite
+### Ignite
 
 Start your nodes using Docker Compose:
 	
