@@ -18,9 +18,8 @@ after `java` command so that the parameters from the j17.params file are picked 
 * Server Node - A server node is the base computational and data storage unit in GridGain. Typically, you start a single server node per machine or container.
 * GridGain Cluster - A cluster is a group of server nodes interconnected together in order to provide shared resources like RAM and CPU to your applications.
 * Client Node - Client nodes are connection endpoints and gateways from the application layer to the cluster of GridGain server nodes. You always embed a client into your application code and execute required APIs. 
-* GridGain Nebula - It is a cloud-native, fully-managed service for the Apache Ignite and GridGain platforms.
 * Control Center - It is a management and monitoring tool for GridGain and Apache Ignite clusters. It features a graphical user interface that helps you perform administrative tasks and monitor your clusters.
-* SQLLine
+* GridGain Nebula - It is a cloud-native, fully-managed service for the Apache Ignite and GridGain platforms. You can sping up Ignite/GridGain cluster in Nebula. Or you can use Nebula Control Center, while running your Ignite/GridGain cluster locally or on-prem.
 * Caches - A cache is a high-speed data storage layer. It is a collection of key-value pairs that can be accessed through the key-value API.
 * Table - A SQL table in GridGain corresponds to the notion of tables in traditional RDBMSs with some additional criteria; for example, each SQL table must have a primary key. SQL tables support traditional SQL syntax. Tables and caches are like two views of the same data.
 * Data Partitioning - It is a method of subdividing large sets of data into smaller chunks and distributing them between all server nodes in a balanced manner.
@@ -63,9 +62,9 @@ Both nodes auto-discover each other and you'll have a two-nodes cluster ready fo
 >>> | If you are already using Control Center, you can add the cluster manually using a one-time token: |
 </pre>
  
-## Connecting to GridGain Nebula
-You use [GridGain Nebula](https://portal.gridgain.com) throughout the course to see how GridGain distributes 
-records, to execute and optimize SQL queries, and to monitor the state of the cluster.
+## Connecting to GridGain Control-Center
+You use [GridGain Nebula](https://portal.gridgain.com) Control Center throughout this course to see how GridGain distributes 
+records, to execute and optimize SQL queries, and to monitor the state of the cluster. If you want to run Control-Center on-prem, you will need its license. [Contact GridGain](https://www.gridgain.com/contact) for the same.
 
 1. Go to [https://portal.gridgain.com](https://portal.gridgain.com).
 
