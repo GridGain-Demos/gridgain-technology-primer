@@ -56,7 +56,8 @@ Start your nodes using Docker Compose:
 docker compose -f docker-compose.yml up
 ```
 	   
-or 
+or
+
 ###Ignite
 
 Start your nodes using Docker Compose:
@@ -127,7 +128,9 @@ Now you need to create a Media Store schema and load the cluster with sample dat
    ```bash
    sql --file=/opt/gridgain/sql/media_store_create.sql
     ```
-	or **Ignite**
+	or
+	
+	**Ignite**
    
    ```bash
    sql --file=/opt/ignite/sql/media_store_create.sql
@@ -141,7 +144,9 @@ Now you need to create a Media Store schema and load the cluster with sample dat
    sql --file=/opt/gridgain/sql/media_store_populate.sql
     ```
     
-   or **Ignite**
+   or
+   
+   **Ignite**
 
    ```bash
    sql --file=/opt/ignite/sql/media_store_populate.sql
@@ -208,7 +213,9 @@ merges partial results.
     mvn clean package 
     ```
     
-    or **Ignite**
+    or
+    
+    **Ignite**
 
     ```bash
     mvn -p ignite clean package 
@@ -225,6 +232,7 @@ merges partial results.
    ```
    
    or
+  
    **Ignite**
    
    ```bash
@@ -246,6 +254,7 @@ merges partial results.
     ```
    
    or
+   
    **Ignite**
    
    ```bash
