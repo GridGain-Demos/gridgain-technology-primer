@@ -2,15 +2,15 @@
 
 Welcome to the GridGain Acceleration Workshop! GridGain is an in-memory storage and computing platform that accelerates applications by providing in-memory distributed caching as well as processing, plus provides ACID transactions. This repository provides a practical introduction to GridGain, designed to help you explore its potential for enhancing application performance and scalability. Our goal is to demonstrate how GridGain can be effectively utilized within your project. This workshop, structured for both guided demonstrations and independent exploration, will walk you through key concepts and hands-on examples, allowing you to experience and apply GridGain's capabilities.
 
-You might come across the names GridGain and Apache Ignite. The GridGain platform is built on Apache Ignite. The source code for Apache Ignite was originally contributed to the Apache Software Foundation by GridGain Systems. We will use the Community Edtion(CE) of GridGain platform in this workshop. The GridGain Community Edition is a source-available version of Apache Ignite which includes patches and updates not yet included in Ignite.
+You might come across the names GridGain and Apache Ignite interchangeably. The GridGain platform is built on Apache Ignite. The source code for Apache Ignite was originally contributed to the Apache Software Foundation by GridGain Systems. We will use the Community Edtion(CE) of GridGain platform in this workshop. The GridGain Community Edition is a source-available version of Apache Ignite which includes patches and updates not yet included in Ignite.
 
 #### Introduction to Frequently Used Terminologies
 * __Server Node__ - A server node is the base computational and data storage unit in GridGain. Typically, you start a single server node per machine or container.
 * __GridGain Cluster__ - A cluster is a group of server nodes interconnected together in order to provide shared resources like RAM and CPU to your applications.
 * __Client Node__ - Client nodes are connection endpoints and gateways from the application layer to the cluster of GridGain server nodes. You always embed a client into your application code and execute required APIs. 
 * __Control Center__ - It is a management and monitoring tool for GridGain and Apache Ignite clusters. It features a graphical user interface that helps you perform administrative tasks and monitor your clusters.
-* __GridGain Nebula__ - It is a cloud-native, fully-managed service for the Apache Ignite and GridGain platforms. You can sping up Ignite/GridGain cluster in Nebula. Or you can use Nebula Control Center, while running your Ignite/GridGain cluster locally or on-prem.
-* __Cache__ - A cache is a high-speed data storage layer. It is a collection of key-value pairs that can be accessed through the key-value API.
+* __GridGain Nebula__ - It is a cloud-native, fully-managed service for the Apache Ignite and GridGain platforms. You can spin up Ignite/GridGain cluster in Nebula. Or you can use Nebula Control Center, while running your Ignite/GridGain cluster locally or on public/private cloud.
+* __Cache__ - Cache is a high-speed data storage layer. It is a collection of key-value pairs that can be accessed through the key-value API.
 * __Table__ - Table in GridGain corresponds to the notion of tables in traditional RDBMSs with some additional criteria; for example, each SQL table must have a primary key. SQL tables support traditional SQL syntax. Tables and caches are like two views of the same data.
 * __Data Partitioning__ - It is a method of subdividing large sets of data into smaller chunks and distributing them between all server nodes in a balanced manner.
 * __Partitioned Cache Mode__ - All partitions are split equally between all server nodes. This mode is the most scalable mode as more the nodes you have, the more data you can store.
@@ -28,6 +28,6 @@ Follow the instruction in each of these sections in the given order:
 - [Optimizing SQL Joins by Colocating Data](docs/Affinity.md)
 
 
-We got an overview of how data is stored in GridGain cluster(distributed across the nodes and partitioned), how we can enforce certain related records of more than one cache to reside on the same node(using affinity key; and the affinity key should be a part of the primary key), how we can perform colocated joins and how can we distribute a compute task across all the nodes.
+By following the given steps, you got an overview of how data is stored in GridGain cluster(distributed across the nodes and partitioned), how you can enforce certain related records of more than one cache to reside on the same node(using affinity key; and the affinity key should be a part of the primary key), how we can perform colocated joins and how can we distribute a compute task across all the nodes.
 
 We hope you enjoyed the workshop. Happy learning!
