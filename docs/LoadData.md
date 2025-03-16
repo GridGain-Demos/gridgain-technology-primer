@@ -1,6 +1,8 @@
 ## Creating Media Store Schema and Loading Data
 
-Now you need to create a Media Store schema and load the cluster with sample data. Use SQLLine tool to achieve that:
+Let's step into the world of digital music! In this workshop, we'll use a 'Media Store' database, a simulated digital tracks library, to explore real-world data scenarios. Our goal is to see how GridGain distributes data, write SQL queries and later optimize them. We'll focus on familiar entities like artists, tracks, customers and invoices, allowing us to dive straight into data distribution and query logic, bypassing the complexities of schema design and data loading. By the end of this workshop, you'll be ready to analyze your own business datasets and answer critical questions.
+
+Use SQLLine tool to load the data in GridGain:
 
 1. Open a terminal window and navigate to the root directory of this project.
    
