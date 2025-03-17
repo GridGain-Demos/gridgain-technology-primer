@@ -4,6 +4,7 @@
 .project
 .settings
 **/Icon*
+dependency-reduced-pom.xml 
 target
 /bin/
 ignite
