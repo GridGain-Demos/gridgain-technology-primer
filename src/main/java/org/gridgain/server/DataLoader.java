@@ -21,6 +21,8 @@ public class DataLoader {
 	public final static String PLAYLIST = "PlayList";
 	public final static String PLAYLISTTRACK = "PlayListTrack";
 	public final static String TRACK = "Track";
+	
+	
 
 	public DataLoader(Ignite ignite) throws IOException {
 		dropTables(ignite);
@@ -30,7 +32,7 @@ public class DataLoader {
 	
 	public static void createTables(Ignite ignite) throws IOException {
 		System.out.println("Creating tables via SQL script ...");
-		String filePath = "sql/media_store_create.sql";
+		String filePath = "sql/media_store_create_colocated.sql";
 		sqlScript(filePath, ignite);
 	}
 	public static void populateTables(Ignite ignite) throws IOException {

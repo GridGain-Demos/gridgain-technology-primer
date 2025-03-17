@@ -57,7 +57,7 @@ public class ComputeApp {
     }
     
     public ComputeApp() throws Exception {
-		AppConfiguration cfg = new AppConfiguration();
+		AppConfiguration cfg = new AppConfiguration(true);
 
         try (Ignite ignite = Ignition.start(cfg)) {
 			DataLoader.dropTables(ignite);
