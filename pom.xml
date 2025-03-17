@@ -11,11 +11,10 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<ignite.version>2.16.0</ignite.version>
-		<gridgain.version>8.9.15</gridgain.version>
+		<gridgain.version>8.9.18</gridgain.version>
 		<java.version>17</java.version>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<repositories>
@@ -169,6 +168,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.6.0</version>
 				<executions>
 					<execution>
 						<phase>package</phase>

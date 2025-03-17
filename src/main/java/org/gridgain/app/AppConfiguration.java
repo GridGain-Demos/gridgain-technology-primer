@@ -10,6 +10,8 @@ import org.apache.ignite.configuration.IgniteConfiguration;
 import org.apache.ignite.plugin.PluginConfiguration;
 import org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi;
 import org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder;
+import org.apache.ignite.spi.tracing.opencensus.OpenCensusTracingSpi;
+import org.gridgain.control.agent.processor.deployment.ManagedDeploymentSpi;
 
 public class AppConfiguration extends IgniteConfiguration {
 
@@ -34,8 +36,11 @@ public class AppConfiguration extends IgniteConfiguration {
 
 		tcpDiscoveryVmIpFinder.setAddresses(list);
 		tcpDiscoverySpi.setIpFinder(tcpDiscoveryVmIpFinder);
-
 		setDiscoverySpi(tcpDiscoverySpi);
+
+		setDeploymentSpi(new ManagedDeploymentSpi());
+
+		setTracingSpi(new OpenCensusTracingSpi());
 
 		// Add license file for EE or UE
 		try {
