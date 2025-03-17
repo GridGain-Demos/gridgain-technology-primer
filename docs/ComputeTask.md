@@ -37,6 +37,9 @@ You can notice that the computation has happened on all the nodes.
     
 <img width="818" alt="image" src="https://github.com/user-attachments/assets/234e32c7-9c4d-49a5-8738-a9bd151e206a" />
 
+
+Task for self-exploration: Try the same exercise by making this third node as a client node and observe which computations happen on which nodes. For being able to call `setClientApp(true`, pass `true` while creating a new instance of AppConfiguration in the constructor of ComputeApp class, (Currently, no parameter has been passed, which ultimately leads to `setClientApp(false)`).
+
 Next Step:[Running SQL Queries on GridGain Data](SQLqueries.md)
 
 Back to [Main Page](../README.md)
