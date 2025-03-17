@@ -1,4 +1,4 @@
-package org.gridgain.app;
+package org.gridgain.server;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

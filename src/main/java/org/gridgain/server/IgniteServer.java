@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.gridgain.app;
+package org.gridgain.server;
 
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteException;
