@@ -32,7 +32,7 @@ public class DataLoader {
 	
 	public static void createTables(Ignite ignite) throws IOException {
 		System.out.println("Creating tables via SQL script ...");
-		String filePath = "sql/media_store_create_colocated.sql";
+		String filePath = "sql/media_store_create.sql";
 		sqlScript(filePath, ignite);
 	}
 	public static void populateTables(Ignite ignite) throws IOException {
