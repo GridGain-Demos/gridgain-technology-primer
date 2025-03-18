@@ -7,10 +7,12 @@ merges partial results.
 1. In the earlier step of building the project, you can observe 2 jars being built in the libs folder of the project. We will now work with the apps.jar in this section.
 
 2. Run the app in the terminal:
-    <pre><code>java -cp libs/apps.jar org.gridgain.app.ComputeApp</code></pre>
+    <pre><code>java -cp libs/apps.jar:libs/core.jar org.gridgain.app.ComputeApp</code></pre>
     
 You can see the overall result i.e. the top 5 highest paying customers on the same terminal (observe that some computations also be happened on this terminal locally and then the cumulative results are shown):
-<img width="819" alt="image" src="https://github.com/user-attachments/assets/3863c933-d888-4ede-aedc-9e8828efef5b" />
+
+<img width="827" alt="image" src="https://github.com/user-attachments/assets/4ed0cbfd-64fe-4ada-8ffb-3db115b28ff7" />
+
 
 You can see the compute tasks under the "Compute" section of the portal.
 
@@ -19,11 +21,14 @@ You can see the compute tasks under the "Compute" section of the portal.
 
 3. Check the logs of the `ServerStartup` processes (your GridGain server nodes) to see that the calculation
 was executed across the cluster.
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/dbb96871-751d-471e-84c4-1dcaa802fd6d" />
+<img width="853" alt="image" src="https://github.com/user-attachments/assets/f2632a98-33be-4b92-b84e-5d62132613ac" />
 
-You can notice that the computation has happened on all the nodes.
 
-<img width="904" alt="image" src="https://github.com/user-attachments/assets/c9f6efcf-6083-4e0c-87c3-172c6dbc8530" />
+You can notice that the computation has happened on the server nodes.
+
+<img width="894" alt="image" src="https://github.com/user-attachments/assets/53159ebd-cea2-4180-802a-59cbe4b3d700" />
+
+
 
 #### Modify the computation logic: 
 
@@ -33,9 +38,9 @@ You can notice that the computation has happened on all the nodes.
     <pre><code>mvn clean package </code></pre>
     
 3. Run the app again:
-    <pre><code>java -cp libs/apps.jar org.gridgain.app.ComputeApp</code></pre>
+    <pre><code>java -cp libs/apps.jar:libs/core.jar org.gridgain.app.ComputeApp</code></pre>
     
-<img width="818" alt="image" src="https://github.com/user-attachments/assets/234e32c7-9c4d-49a5-8738-a9bd151e206a" />
+Observe the terminals where server nodes are running as well as the one where client node is running.
 
 
 Task for self-exploration: Try the same exercise by making this third node as a client node and observe which computations happen on which nodes. For being able to call `setClientApp(true`, pass `true` while creating a new instance of AppConfiguration in the constructor of ComputeApp class, (Currently, no parameter has been passed, which ultimately leads to `setClientApp(false)`).
