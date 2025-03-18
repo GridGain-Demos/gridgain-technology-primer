@@ -13,6 +13,10 @@ You can see the overall result i.e. the top 5 highest paying customers on the sa
 
 <img width="827" alt="image" src="https://github.com/user-attachments/assets/4ed0cbfd-64fe-4ada-8ffb-3db115b28ff7" />
 
+On the dashboard, you can see the thick client count goes from 0 to 1. Note that the thin client count 1 is the SQLLine client connected to the cluster.
+
+<img width="471" alt="image" src="https://github.com/user-attachments/assets/9852f434-144b-45dd-971f-6e6ab0102855" />
+
 
 You can see the compute tasks under the "Compute" section of the portal.
 
@@ -44,6 +48,13 @@ Observe the terminals where server nodes are running as well as the one where cl
 
 
 Task for self-exploration: Try the same exercise by making this third node as a client node and observe which computations happen on which nodes. For being able to call `setClientApp(true`, pass `true` while creating a new instance of AppConfiguration in the constructor of ComputeApp class, (Currently, no parameter has been passed, which ultimately leads to `setClientApp(false)`).
+
+## Code Deployment on Nebula
+If you are using GridGain Nebula for spinning up GridGain cluster, or Nebula just for Control Center, you can use the Code Deployment from the UI. Upload the `apps.jar` and deploy it. 
+
+<img width="1483" alt="image" src="https://github.com/user-attachments/assets/e5432685-5079-4ac5-ae0d-e667f7486b61" />
+
+
 
 Next Step:[Running SQL Queries on GridGain Data](SQLqueries.md)
 
