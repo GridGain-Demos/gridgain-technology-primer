@@ -108,13 +108,45 @@
                             <outputFile>${project.basedir}/libs/core.jar</outputFile>
                         </configuration>
                     </execution>
-                    <execution>
+                     <execution>
                         <id>create-apps-jar</id>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>org.gridgain:ignite-core</artifact>
+                                    <excludes>
+                                        <exclude>**</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>org.gridgain:ignite-indexing</artifact>
+                                    <excludes>
+                                        <exclude>**</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>org.gridgain:ignite-opencensus</artifact>
+                                    <excludes>
+                                        <exclude>**</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>org.gridgain:control-center-agent</artifact>
+                                    <excludes>
+                                        <exclude>**</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>org.gridgain:ignite-control-utility</artifact>
+                                    <excludes>
+                                        <exclude>**</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
                             <outputFile>${project.basedir}/libs/apps.jar</outputFile>
                         </configuration>
                     </execution>
