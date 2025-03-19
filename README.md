@@ -36,6 +36,7 @@ Follow the instruction in each of these sections in the given order:
 - [Optimizing SQL Joins by Colocating Data](docs/Affinity.md)
 
 
-By following the given steps, you got an overview of how data is stored in GridGain cluster(distributed across the nodes and partitioned), how you can enforce certain related records of more than one cache to reside on the same node(using affinity key; and the affinity key should be a part of the primary key), how we can perform colocated joins and how can we distribute a compute task across all the nodes.
+## We Covered the Basics
+By following the above steps, you got an overview of how data is stored in GridGain cluster(distributed across the nodes and partitioned), how you can enforce certain related records of more than one cache to reside on the same node(using affinity key; and the affinity key should be a part of the primary key), how we can perform colocated joins and how can we distribute a compute task across all the nodes.
 
 We hope you enjoyed the workshop. Happy learning!
