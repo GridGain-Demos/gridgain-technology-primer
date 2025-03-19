@@ -19,7 +19,6 @@ You might come across the names GridGain and Apache Ignite interchangeably. The 
 
 Here is a diagram that illustrates a 2-node GridGain cluster with two caches in partitioned mode. It is provided as a simplified example to help understand data partitioning and may not represent the actual distribution of data in a real cluster.
 
-  ![DataPartition (1)](https://github.com/user-attachments/assets/ba48a0d9-a0b2-4a74-a8a0-326337ec4a9c)
     
 <div align="center">
   <img src="docs/Data_partition.png" alt="DataPartition">
