@@ -17,6 +17,13 @@ You might come across the names GridGain and Apache Ignite interchangeably. The 
 * __Replicated Cache Mode__ - All the data (every partition) is replicated to every node in the cluster. This mode provides the high availability of data. 
 * __Compute Task__ - The ComputeTask interface in GridGain provides fine-grained control over job distribution and custom fail-over logic, allowing developers to implement complex distributed algorithms, enabling massive parallel processing and efficient handling of large datasets. GridGain provides a simplified MapReduce API for it.
 
+Here is a diagram that illustrates a 2-node GridGain cluster with two caches in partitioned mode. It is provided as a simplified example to help understand data partitioning and may not represent the actual distribution of data in a real cluster.
+
+  ![DataPartition (1)](https://github.com/user-attachments/assets/ba48a0d9-a0b2-4a74-a8a0-326337ec4a9c)
+    
+
+
+
 ## Step-by-step Guide
 Follow the instruction in each of these sections in the given order:
 - [Project Setup and Cluster Creation](docs/Setup.md)
