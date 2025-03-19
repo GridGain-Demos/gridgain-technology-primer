@@ -18,4 +18,4 @@ You can verify the same on your SQLLine window.
 
 Next Step:[Distribute and Run Computation Task](ComputeTask.md)
 
-Back to [Main Page](../README.md)
+Back to the [Main Page](../README.md/#step-by-step-guide)

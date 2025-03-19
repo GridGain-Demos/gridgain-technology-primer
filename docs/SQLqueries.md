@@ -29,4 +29,4 @@ going to run basic SQL operations as well as more advanced ones.
 
 Next Step:[Optimizing SQL Joins by Colocating Data](Affinity.md)
 
-Back to [Main Page](../README.md)
+Back to the [Main Page](../README.md/#step-by-step-guide)

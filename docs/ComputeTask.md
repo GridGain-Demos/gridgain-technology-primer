@@ -58,4 +58,4 @@ If you are using GridGain Nebula for spinning up GridGain cluster, or Nebula jus
 
 Next Step:[Running SQL Queries on GridGain Data](SQLqueries.md)
 
-Back to [Main Page](../README.md)
+Back to the [Main Page](../README.md/#step-by-step-guide)

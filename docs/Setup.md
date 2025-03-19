@@ -51,4 +51,4 @@ Both nodes auto-discover each other and you'll have a two-nodes cluster ready fo
 
 Next Step:[Connect to GridGain Control Center](ControlCenter.md)
 
-Back to [Main Page](../README.md)
+Back to the [Main Page](../README.md/#step-by-step-guide)

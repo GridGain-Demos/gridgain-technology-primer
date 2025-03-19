@@ -25,4 +25,4 @@ using the token.
 
 Next Step:[Load Data in GridGain Cluster](LoadData.md)
 
-Back to [Main Page](../README.md)
+Back to the [Main Page](../README.md/#step-by-step-guide)
