@@ -21,7 +21,9 @@ Here is a diagram that illustrates a 2-node GridGain cluster with two caches in 
 
   ![DataPartition (1)](https://github.com/user-attachments/assets/ba48a0d9-a0b2-4a74-a8a0-326337ec4a9c)
     
-
+<div align="center">
+  <img src="docs/Data_partition.png" alt="DataPartition">
+</div>
 
 
 ## Step-by-step Guide
