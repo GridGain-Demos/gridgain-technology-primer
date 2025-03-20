@@ -25,4 +25,4 @@ Keep the connection open as you'll use it for following exercises.
 
 Next Step:[Observe Data Distribution](PartitionedData.md)
 
-Back to [Main Page](../README.md)
+Back to [Main Page](../README.md/#step-by-step-guide)
