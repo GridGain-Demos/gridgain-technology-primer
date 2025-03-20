@@ -11,3 +11,4 @@ libs
 ignite
 work
 dependency-reduced-pom.xml
+docker/dist/*

@@ -1,5 +1,5 @@
 # GridGain Technology Primer
-## Key Design Principles for Building Data-Intensive Applications
+##Key Design Principles for Building Data-Intensive Applications
 
 
 ## Prerequisites
@@ -18,7 +18,23 @@
     ```
 
 2. (optionally), open the project in your favourite IDE such as IntelliJ or Eclipse, or just use a simple text editor
-and command-line instructions prepared for all the samples.    
+and command-line instructions prepared for all the samples. 
+
+###If you are running on an ARM cpu architecture you can build your own container images
+
+1. Download the latest GridGain DB & CLI distributions from;
+
+	DB - [https://www.gridgain.com/media/gridgain9-db-9.0.16.zip](https://www.gridgain.com/media/gridgain9-db-9.0.16.zip)
+	
+	CLI - [https://www.gridgain.com/media/gridgain9-cli-9.0.16.zip](https://www.gridgain.com/media/gridgain9-cli-9.0.16.zip)
+
+2. Unzip both files into ```docker/dist``` and rename them to ```db``` & ```cli```
+3. Build the image
+
+	```bash
+	cd docker
+	docker build . -t gridgain/gridgain9:9.0.16
+	```
 
 ## Sign up for GridGain's Nebula service
 
@@ -53,12 +69,13 @@ We'll use the Control Center component to execute SQL queries and view cluster i
 Start your nodes using Docker Compose:
 	
 ```bash
+export GRIDGAIN9_VERSION=9.0.16
 docker compose -f docker-compose.yml up
 ```
 	   
 or
 
-### Ignite
+###Ignite
 
 Start your nodes using Docker Compose:
 	

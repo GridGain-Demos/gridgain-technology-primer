@@ -5,18 +5,21 @@
 #  / /_/ /  _  /    _  /  / /_/ /  / /_/ /  / /_/ / _  /  _  / / /
 #  \____/   /_/     /_/   \_,__/   \____/   \__,_/  /_/   /_/ /_/
 
+version: "3.9"
+
 name: gridgain9
 
 x-gridgain-def:
   &gridgain-def
   image: gridgain/gridgain9:${GRIDGAIN9_VERSION:-latest}
-  attach: false
   environment:
     JVM_MAX_MEM: "4g"
-    JVM_MIN_MEM: "2g"
+    JVM_MIN_MEM: "4g"
   configs:
     - source: node_config
       target: /opt/gridgain/etc/gridgain-config.conf
+  volumes:
+    - ../../modules/core/src/testFixtures/resources/gridgain-license.conf:/opt/gridgain/etc/gridgain-license.conf
 
 services:
   node1:
@@ -37,10 +40,6 @@ services:
     ports:
       - 10302:10300
       - 10802:10800
-  cccc:
-    image: gridgain/cloud-connector:2025-02-14
-    volumes:
-      - ./src/main/resources/cloud-connector.conf:/opt/gridgain-cloud-connector/application.properties
 
 configs:
   node_config:
