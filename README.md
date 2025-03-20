@@ -216,6 +216,19 @@ JOIN with the `Artist` table:
 	Limit(fetch=[20]): rowcount = 20.0, cumulative cost = GridGainCost [rowCount=15318.06, cpu=77499.96615043783, memory=33461.76, io=178134.0, network=101068.0], id = 35293  
 	```
 
+## Co-located Compute Tasks
+
+What is Collocation of Data and Compute?
+Collocation of data and compute in GridGain means executing computations on the same nodes where the relevant data is stored. Instead of moving data across the network to a central processing unit, Ignite brings processing closer to the data, reducing latency and network overhead while improving overall performance.
+
+1. Traditional Compute Model (Without Collocation)
+
+	❌ Inefficient Data Movement
+
+1. The application requests data from multiple nodes.
+1. Data is transferred over the network to a central processing unit.
+Computation is done remotely, introducing latency and bottlenecks.
+
 ## Running Co-located Compute Tasks
 
 Run `training.ComputeApp` that uses Apache GridGain compute capabilities for a calculation of top-5 paying customers.
