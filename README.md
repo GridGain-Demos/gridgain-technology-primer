@@ -28,12 +28,14 @@ and command-line instructions prepared for all the samples.
 	
 	CLI - [https://www.gridgain.com/media/gridgain9-cli-9.0.16.zip](https://www.gridgain.com/media/gridgain9-cli-9.0.16.zip)
 
-2. Unzip both files into ```docker/dist``` and rename them to ```db``` & ```cli```
-3. Build the image
+2. Unzip both files into ```{project root}/docker/dist```
+3. Rename ```gridgain9-db-9.0.16``` to ```db```
+4. Rename ```gridgain9-cli-9.0.16``` to ```cli```
+5. Build the image
 
 	```bash
 	cd docker
-	docker build . -t gridgain/gridgain9:9.0.16
+	docker build . -t gridgain/gridgain9:9.0.16 -t gridgain/gridgain9:latest
 	```
 
 ## Sign up for GridGain's Nebula service
@@ -68,8 +70,15 @@ We'll use the Control Center component to execute SQL queries and view cluster i
 	
 Start your nodes using Docker Compose:
 	
+To use a specific GridGain Version (not needed for ***latest***);
+
 ```bash
 export GRIDGAIN9_VERSION=9.0.16
+```
+
+then 
+
+```
 docker compose -f docker-compose.yml up
 ```
 	   
