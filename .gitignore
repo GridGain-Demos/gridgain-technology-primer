@@ -3,8 +3,11 @@
 .factorypath
 .project
 .settings
+.idea
 **/Icon*
 target
 /bin/
+libs
 ignite
 work
+dependency-reduced-pom.xml
