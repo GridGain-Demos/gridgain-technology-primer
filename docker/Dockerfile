@@ -5,8 +5,8 @@
 # / /_/ /  _  /    _  /  / /_/ /  / /_/ /  / /_/ / _  /  _  / / /
 # \____/   /_/     /_/   \_,__/   \____/   \__,_/  /_/   /_/ /_/
 
-ARG JDK_VERSION=11
-FROM eclipse-temurin:${JDK_VERSION} AS jre-build
+ARG JDK_VERSION=17
+FROM arm64v8/eclipse-temurin:${JDK_VERSION} AS jre-build
 
 RUN $JAVA_HOME/bin/jlink \
          --add-modules ALL-MODULE-PATH \
