@@ -20,9 +20,12 @@ Throughout this workshop, you will gain hands-on experience with key GridGain 8 
 - Implementing complex joins operational insights
 - Optimizing SQL queries
 
-### Runnning MapReduce Jobs
+### Running MapReduce Job
 
 - Creating compute task for distributed and parallel processing
+
+> [!tip]
+> Each module builds upon the previous one, with clear checkpoints to validate your progress. Therefore, it is highly recommended to follow the steps in the given order.
 
 ## Prerequisites
 
