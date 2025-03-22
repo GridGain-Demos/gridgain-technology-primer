@@ -4,6 +4,42 @@ Welcome to the GridGain Acceleration Workshop! GridGain is an in-memory storage 
 
 You might come across the names GridGain and Apache Ignite interchangeably. The GridGain platform is built on Apache Ignite. The source code for Apache Ignite was originally contributed to the Apache Software Foundation by GridGain Systems. We will use the Community Edtion(CE) of GridGain platform in this workshop. The GridGain Community Edition is a source-available version of Apache Ignite which includes patches and updates not yet included in Ignite.
 
+## What You'll Learn
+
+Throughout this workshop, you will gain hands-on experience with key GridGain 8 concepts and features:
+
+### Data Storage
+
+- Creating caches using SQL
+- Understanding of data partitions
+- Managing primary/affinity keys for optimal performance
+
+### Querying and Analysis
+
+- Writing SQL queries against distributed data
+- Implementing complex joins operational insights
+- Optimizing SQL queries
+
+### Runnning MapReduce Jobs
+
+- Creating compute task for distributed and parallel processing
+
+## Prerequisites
+
+Before starting this tutorial, please ensure you have:
+
+- **Java 11 or later** installed and properly configured
+  - Verify with `java --version` in your terminal
+- **Maven 3.6+** for dependency management
+  - Verify with `mvn --version`
+- **IDE** such as Eclipse or IntelliJ IDEA or VS Code with Java extensions
+- **Basic Java knowledge**, including familiarity with classes and interfaces
+- **Some SQL experience** for understanding the query examples
+
+> [!important]
+> **Checkpoint:** Before proceeding, verify you have all the prerequisites installed by running the version check commands listed above. Each should return version information rather than "command not found" errors.
+
+
 #### Introduction to Frequently Used Terminologies
 * __Server Node__ - A server node is the base computational and data storage unit in GridGain. Typically, you start a single server node per machine or container.
 * __GridGain Cluster__ - A cluster is a group of server nodes interconnected together in order to provide shared resources like RAM and CPU to your applications.
