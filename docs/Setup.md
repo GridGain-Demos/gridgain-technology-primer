@@ -9,8 +9,8 @@ We will be spinning up a 2-node GridGain 8.9 Community Edition cluster locally f
 > This screen appears when you do not have any cluster attached or running on Nebula. If you already have a cluster attached or running, you will see the `+` option on the portal screen.
 
 Install the following on your local machine:
-* Java Developer Kit, version 8 or 11 and set JAVA_HOME
-* Apache Maven 3.0 or later
+* Java Developer Kit, version 11 and set JAVA_HOME
+* Apache Maven 3.6 or later
 * Your favorite IDE, such as IntelliJ IDEA, or Eclipse, or a simple text editor.
 
 This project will also work with Java 17, but additional options need
@@ -18,7 +18,7 @@ to be specified on the command-line. You can use `@src/main/resources/j17.params
 after `java` command so that the parameters from the j17.params file are picked up while executing the command.
 
 See the [documentation](https://ignite.apache.org/docs/latest/setup#running-ignite-with-java-11-or-later)
-for more details. The steps that follow assume Java 8 or 11.
+for more details. The steps that follow assume Java 11.
 
 ## Clone The Project
 
@@ -52,7 +52,9 @@ Both nodes auto-discover each other and you'll have a two-nodes cluster ready fo
 >>> | If you are already using Control Center, you can add the cluster manually using a one-time token: |
 </pre>
 
+> [!important]
+> **Checkpoint:** You should get to see a token printed on each of the terminals from where you started the server nodes. You should also get to see Topology snapshot that shows `servers=2`.
 
-Next Step:[Connect to GridGain Control Center](ControlCenter.md)
+Next Step: [Connect to GridGain Control Center](ControlCenter.md)
 
 Back to the [Main Page](../README.md/#step-by-step-guide)
