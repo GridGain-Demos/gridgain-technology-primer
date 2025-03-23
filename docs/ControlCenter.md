@@ -21,7 +21,11 @@ Just in case you get error regarding connection token being invalid or expired, 
     Ignite Agent distribution package). In this application, since the dependency is packaged, you can call it directly using the following command: 
     
   <pre><code>java -cp libs/core.jar org.gridgain.control.agent.commandline.ManagementCommandHandler --token</code></pre>
-     
+
+The correct and valid token will connect to your cluster and take you to the dashboard, show your cluster to be **Healthy** and "Nodes" section will show your server nodes.
+<div align="center">
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/2fe10422-4cd6-42bd-8aac-08e255be44bb" />
+</div>
 
 > [!important]
 > **Checkpoint:** You should see the Control Center dashboard and 2 nodes with `Online` status listed.
