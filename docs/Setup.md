@@ -42,9 +42,15 @@ to download the module that connects to GridGain Nebula.
 3. Start the first cluster node (or just start the app with IntelliJ IDEA or Eclipse):
     <pre><code>java -cp libs/core.jar org/gridgain/server/IgniteServer</code></pre>
 
+ You will notice `Ignite node started OK` on the terminal and `servers=1` under Topology when your first node start successfully.
+ <img width="808" alt="image" src="https://github.com/user-attachments/assets/600e5ecc-6ae7-4a23-aa5a-acbe23a92c8c" />
+
 4. Open another terminal window and start the second node:
     <pre><code>java -cp libs/core.jar org/gridgain/server/IgniteServer</code></pre>
-
+<img width="801" alt="image" src="https://github.com/user-attachments/assets/1b73180c-6082-492b-ac19-38d4749331bf" />
+ 
+ You will notice `servers=2` under Topology.
+ 
 Both nodes auto-discover each other and you'll have a two-nodes cluster ready for exercises. On both the terminals, you will notice a token being printed. We need this token in the next step.
 <pre>>>> +---------------------------------------------------------------------------------------------------+
 >>> | If you are already using Control Center, you can add the cluster manually using a one-time token: |
