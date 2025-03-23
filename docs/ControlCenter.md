@@ -27,6 +27,11 @@ The correct and valid token will connect to your cluster and take you to the das
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/2fe10422-4cd6-42bd-8aac-08e255be44bb" />
 </div>
 
+> [!note]
+> - __Coordinator Node__ - It is the node of the cluster that receives the distributed computing job, manages its execution, and reports the results to the client. It is a "special" server node that is responsible for certain administrative tasks and coordinating between the cluster nodes.
+> - __GridGain Nebula__ - It is a cloud-native, fully-managed service for the Apache Ignite and GridGain platforms. You can spin up Ignite/GridGain cluster in Nebula. Or you can use Nebula Control Center, while running your Ignite/GridGain cluster locally or on public/private cloud.
+
+
 > [!important]
 > **Checkpoint:** You should see the Control Center dashboard and 2 nodes with `Online` status listed.
 
