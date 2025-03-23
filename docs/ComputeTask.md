@@ -54,8 +54,9 @@ If you are using GridGain Nebula for spinning up GridGain cluster, or Nebula jus
 
 <img width="1483" alt="image" src="https://github.com/user-attachments/assets/e5432685-5079-4ac5-ae0d-e667f7486b61" />
 
+> [!important]
+> **Checkpoint:** Compute page on the Control Center should show the compute task with its status as `Finished`.
 
-
-Next Step:[Running SQL Queries on GridGain Data](SQLqueries.md)
+Next Step: [Running SQL Queries on GridGain Data](SQLqueries.md)
 
 Back to the [Main Page](../README.md/#step-by-step-guide)
