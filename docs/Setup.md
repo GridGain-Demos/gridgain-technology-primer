@@ -17,8 +17,6 @@ This project will also work with Java 17, but additional options need
 to be specified on the command-line. You can use `@src/main/resources/j17.params` argument
 after `java` command so that the parameters from the j17.params file are picked up while executing the command.
 
-See the [documentation](https://ignite.apache.org/docs/latest/setup#running-ignite-with-java-11-or-later)
-for more details. The steps that follow assume Java 11.
 
 ## Clone The Project
 
@@ -51,6 +49,9 @@ Both nodes auto-discover each other and you'll have a two-nodes cluster ready fo
 <pre>>>> +---------------------------------------------------------------------------------------------------+
 >>> | If you are already using Control Center, you can add the cluster manually using a one-time token: |
 </pre>
+
+> [!note]
+> **Control Center** is a management and monitoring tool for GridGain and Apache Ignite clusters. It features a graphical user interface that helps you query the data, perform administrative tasks and monitor your clusters.
 
 > [!important]
 > **Checkpoint:** You should get to see a token printed on each of the terminals from where you started the server nodes. You should also get to see Topology snapshot that shows `servers=2`.
