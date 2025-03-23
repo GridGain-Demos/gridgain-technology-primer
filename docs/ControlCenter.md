@@ -7,8 +7,10 @@ records, to execute and optimize SQL queries, and to monitor the state of the cl
 2. Create an account to sign in into GridGain Nebula.
 
 3. Select "Attach GridGain" option, which opens a modal panel to enter the connection token(which got displayed on the terminal when you started the server) of the GridGain cluster.
-
-![image](https://github.com/user-attachments/assets/c9b9406c-3d82-4d65-88a4-14090f22cdab)
+   
+<div align="center">
+<img width= 500 alt="Enter token" src="https://github.com/user-attachments/assets/c9b9406c-3d82-4d65-88a4-14090f22cdab" />
+</div>
 
 Just in case you get error regarding connection token being invalid or expired, generate a new token for the cluster as instructed below. The default token expires in 5 minutes after the cluster startup time.
 
@@ -16,13 +18,14 @@ Just in case you get error regarding connection token being invalid or expired, 
     
 * Generate the token (the `ManagementCommandHandler` is the tool used by the 
     [management.sh|bat script](https://www.gridgain.com/docs/control-center/latest/clusters#generating-a-token) of the 
-    Ignite Agent distribution package, you just call it directly with this training to skip extra downloads): 
+    Ignite Agent distribution package). In this application, since the dependency is packaged, you can call it directly using the following command: 
     
   <pre><code>java -cp libs/core.jar org.gridgain.control.agent.commandline.ManagementCommandHandler --token</code></pre>
      
-More information on [Registering the cluster](https://www.gridgain.com/docs/control-center/latest/clusters#adding-clusters) with GridGain Nebula 
-using the token.
 
-Next Step:[Load Data in GridGain Cluster](LoadData.md)
+> [!important]
+> **Checkpoint:** You should see the Control Center dashboard and 2 nodes with `Online` status listed.
+
+Next Step: [Load Data in GridGain Cluster](LoadData.md)
 
 Back to the [Main Page](../README.md/#step-by-step-guide)
