@@ -1,4 +1,4 @@
-## Creating Media Store Schema and Loading Data
+## 3. Creating Media Store Schema and Loading Data
 
 Let's step into the world of digital music! In this workshop, we'll use a 'Media Store' database, a simulated digital tracks library, to explore real-world data scenarios. Our goal is to see how GridGain distributes data, write SQL queries and later optimize them. We'll focus on familiar entities like artists, tracks, customers and invoices, allowing us to dive straight into data distribution and query logic, bypassing the complexities of schema design and data loading. By the end of this workshop, you'll be ready to analyze your own business datasets and answer critical questions.
 
@@ -27,6 +27,9 @@ Use SQLLine tool to load the data in GridGain:
    <img width="761" alt="image" src="https://github.com/user-attachments/assets/063b9413-4a5d-43c7-9796-dfb684574876" />
 
 Keep the connection open, as you will use it for the upcoming exercises.
+> [!note]
+> - __Cache__ - Cache is a high-speed data storage layer. It is a collection of key-value pairs that can be accessed through the key-value API.
+> - __Table__ - Table in GridGain corresponds to the notion of tables in traditional RDBMSs with some additional criteria; for example, each SQL table must have a primary key. SQL tables support traditional SQL syntax. Tables and caches are like two views of the same data
 
 > [!important]
 > **Checkpoint:** Running `!tables` command on this same SQLLine terminal should list many tables in system-level schema and script-created tables(Album, Artist, Customer, Employee, Genre, Invoice, InvoiceLine, MediaType, PlayList, PlayListTrack, Track) under PUBLIC schema.
