@@ -1,5 +1,5 @@
  
-## Setting Up Environment
+## 2. Setting Up Environment
 We will be spinning up a 2-node GridGain 8.9 Community Edition cluster locally for this workshop. Note that we do not recommend this cluster setup for production purposes. [Here](https://www.gridgain.com/docs/latest/installation-guide) are other ways of deploying a GridGain cluster. You may even spin up a fully-managed cloud cluster on [GridGain Nebula](https://portal.gridgain.com/) by selecting `Create` option on the "Create new cluster" (You will need minor changes in the code to be able to connect to your Nebula cluster; we will not be covering them in this workshop):
 <div align="center">
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/67be946e-ef76-4ad4-9953-96ab1379593e" />
