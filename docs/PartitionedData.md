@@ -1,4 +1,4 @@
-## Data Partitioning - Checking Data Distribution
+## 4. Data Partitioning - Checking Data Distribution
 
 Data partitioning is a method of subdividing large sets of data into smaller chunks and distributing them between all server nodes. With the Media Store database loaded, you can check how GridGain distributed the records within the cluster:
 
@@ -9,8 +9,8 @@ GridGain Nebula. You will see the tables created from SQLLine on the Caches Scre
 
 > [!note]
 > You will notice a couple of tables showing `Replicated` and rest of the tables showing `Partitioned` under the Mode column.
-> In **Replicated Cache Mode**, all the data (every partition) is replicated to every node in the cluster. This mode provides the high availability of data.
-> In **Partitioned Cache Mode**, the data is split between the partitions across all server nodes. This mode is the most scalable; as the more nodes you have, the more data you can store.
+> - In **Replicated Cache Mode**, all the data (every partition) is replicated to every node in the cluster. This mode provides the high availability of data.
+> - In **Partitioned Cache Mode**, the data is split between the partitions across all server nodes. This mode is the most scalable; as the more nodes you have, the more data you can store.
  
 
 2. Select different caches and observe the number of primary keys.
