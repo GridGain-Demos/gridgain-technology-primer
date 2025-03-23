@@ -36,12 +36,16 @@ Throughout this workshop, you will gain hands-on experience with key GridGain 8 
 
 
 
-Here is a diagram that illustrates a 2-node GridGain cluster with two caches in partitioned mode (we will cover the cache modes later, in step #4). It is provided as a simplified example to help understand data partitioning and may not represent the actual distribution of data in a real cluster.
+Here is a diagram that illustrates a 2-node GridGain cluster with two caches in partitioned mode (we will cover the cache modes later, in step #4). It is provided as a simplified example to help understand how data is distributed and stored; and may not represent the actual distribution of data in a real cluster.
 
     
 <div align="center">
   <img src="docs/Data_partition.png" alt="DataPartition">
 </div>
+
+> [!note]
+> - __Primary Partition__ is the main partition that holds the actual data for a given key. Each key is assigned to a primary partition in the cluster based on the hashing algorithm.
+> - __Backup Partition__ is a replica of a primary partition, stored on a different node to ensure fault tolerance and data availability in case the primary partition becomes unavailable.
 
 ## Prerequisites
 
