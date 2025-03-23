@@ -1,4 +1,4 @@
-## Optimizing Queries
+## 7. Optimizing Queries
 
 Let us look at what happens when the tables we are joining in SQL query are residing on different server nodes.
 
@@ -20,8 +20,11 @@ JOIN with the `Artist` table:
     `Artist` tables are not colocated and the nodes don't have all data available locally during the join phase.
    <img width="1476" alt="image" src="https://github.com/user-attachments/assets/1da233e1-bef6-45a6-aa46-0d6980d79bde" />
     
-3. Allow the non-colocated joins by enabling the `Allow non-colocated joins` checkbox on the GridGain Nebula screen. Run the query again to see a complete and correct result.
+2. Allow the non-colocated joins by enabling the `Allow non-colocated joins` checkbox on the GridGain Nebula screen. Run the query again to see a complete and correct result.
    <img width="1086" alt="image" src="https://github.com/user-attachments/assets/8d6bb24c-51db-4955-a91e-728483b13e04" />
+
+> [!note]
+> When data is colocated, it means that related data is stored on the same node in the cluster.
 
 ### Joining Two Colocated Tables
 
