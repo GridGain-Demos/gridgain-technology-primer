@@ -27,6 +27,9 @@ going to run basic SQL operations as well as more advanced ones.
 
  <img width="1476" alt="image" src="https://github.com/user-attachments/assets/956befc6-4034-437b-83d1-1b2170fe77af" />
 
-Next Step:[Optimizing SQL Joins by Colocating Data](Affinity.md)
+> [!important]
+> **Checkpoint:** Your queries should run successfully.
+
+Next Step: [Optimizing SQL Joins by Colocating Data](Affinity.md)
 
 Back to the [Main Page](../README.md/#step-by-step-guide)
