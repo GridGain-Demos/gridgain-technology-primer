@@ -8,6 +8,10 @@ We will be spinning up a 2-node GridGain 8.9 Community Edition cluster locally f
 > [!tip]
 > This screen appears when you do not have any cluster attached or running on Nebula. If you already have a cluster attached or running, you will see the `+` option on the portal screen.
 
+>[!note]
+> - __GridGain Nebula__ - It is a cloud-native, fully-managed service for the Apache Ignite and GridGain platforms. You can spin up Ignite/GridGain cluster in Nebula. Or you can use Nebula Control Center, while running your Ignite/GridGain cluster locally or on public/private cloud.
+> - __Control Center__ - It is a management and monitoring tool for GridGain and Apache Ignite clusters. It features a graphical user interface that helps you perform administrative tasks and monitor your clusters.
+
 Install the following on your local machine:
 * Java Developer Kit, version 11 and set JAVA_HOME
 * Apache Maven 3.6 or later
@@ -55,9 +59,6 @@ Both nodes auto-discover each other and you'll have a two-nodes cluster ready fo
 <pre>>>> +---------------------------------------------------------------------------------------------------+
 >>> | If you are already using Control Center, you can add the cluster manually using a one-time token: |
 </pre>
-
-> [!note]
-> **Control Center** is a management and monitoring tool for GridGain and Apache Ignite clusters. It features a graphical user interface that helps you query the data, perform administrative tasks and monitor your clusters.
 
 > [!important]
 > **Checkpoint:** You should get to see a token printed on each of the terminals from where you started the server nodes. You should also get to see Topology snapshot that shows `servers=2`.
