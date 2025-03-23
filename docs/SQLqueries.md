@@ -1,4 +1,4 @@
-## Running SQL Queries
+## 6. Running SQL Queries
 
 GridGain supports SQL for data processing including distributed joins, grouping and sorting. In this section, you're 
 going to run basic SQL operations as well as more advanced ones.
