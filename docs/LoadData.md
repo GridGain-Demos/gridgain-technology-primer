@@ -17,12 +17,20 @@ Use SQLLine tool to load the data in GridGain:
 
 4. Create and load the Media Store database:
     <pre><code>!run sql/media_store_create.sql</code></pre>
-    
+
+   You will notice that the script is getting executed and tables are getting created, a part of which looks like:
+   <img width="757" alt="image" src="https://github.com/user-attachments/assets/a47ba77a-e273-4a02-882c-da35796cae28" />
+
     <pre><code>!run sql/media_store_populate.sql</code></pre>
    
+   You will notice many insert statements executing; the end of which looks as follows:
+   <img width="761" alt="image" src="https://github.com/user-attachments/assets/063b9413-4a5d-43c7-9796-dfb684574876" />
 
-Keep the connection open as you'll use it for following exercises.
+Keep the connection open, as you will use it for the upcoming exercises.
 
-Next Step:[Observe Data Distribution](PartitionedData.md)
+> [!important]
+> **Checkpoint:** Running `!tables` command on this same SQLLine terminal should list many tables in system-level schema and script-created tables(Album, Artist, Customer, Employee, Genre, Invoice, InvoiceLine, MediaType, PlayList, PlayListTrack, Track) under PUBLIC schema.
+
+Next Step: [Observe Data Distribution](PartitionedData.md)
 
 Back to [Main Page](../README.md/#step-by-step-guide)
