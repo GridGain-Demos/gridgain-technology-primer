@@ -15,7 +15,7 @@ merges partial results.
     
 You can see the overall result i.e. the top 5 highest paying customers on the same terminal (observe that some computations also be happened on this terminal locally and then the cumulative results are shown):
 
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/4ed0cbfd-64fe-4ada-8ffb-3db115b28ff7" />
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/4ed0cbfd-64fe-4ada-8ffb-3db115b28ff7" />
 
 On the dashboard, you can see the thick client count goes from 0 to 1. Note that the thin client count 1 is the SQLLine client connected to the cluster.
 <div align="center">
@@ -30,7 +30,7 @@ You can see the compute tasks under the "Compute" section of the portal.
 
 3. Check the logs of the `ServerStartup` processes (your GridGain server nodes) to see that the calculation
 was executed across the cluster.
-<img width="400" alt="Client" src="https://github.com/user-attachments/assets/f2632a98-33be-4b92-b84e-5d62132613ac" />
+<img width="700" alt="Client" src="https://github.com/user-attachments/assets/f2632a98-33be-4b92-b84e-5d62132613ac" />
 
 
 You can notice that the computation has happened on the server nodes.
