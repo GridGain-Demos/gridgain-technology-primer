@@ -34,7 +34,7 @@ Here is a diagram that illustrates a 2-node GridGain cluster with two caches in 
 
 Suppose our GridGain cluster has 3 nodes, and the partitioned cache (Cache_Partition in the diagram) is configured to have 1 backup partition. In this case, the distribution of primary and backup partitions would look as shown. For the replicated cache (Cache_Replicated in the diagram), every node in the cluster would hold a full copy of all the data.
 <div align=center>
-<img width=800 alt="Replicated Cache" src="https://github.com/user-attachments/assets/ccce4de4-f67a-4cc2-80bc-8dc6187d17d4">
+<img width=800 alt="Replicated Cache" src="https://github.com/user-attachments/assets/363c27b2-be97-4ff0-805b-421bc04e2345">
 </div>
 
 
