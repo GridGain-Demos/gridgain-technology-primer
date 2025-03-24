@@ -19,9 +19,13 @@ JOIN with the `Artist` table:
     Once you run the query, you'll see that the `artist` column is blank for some records. That's because `Track` and 
     `Artist` tables are not colocated and the nodes don't have all data available locally during the join phase.
    <img width="1476" alt="image" src="https://github.com/user-attachments/assets/1da233e1-bef6-45a6-aa46-0d6980d79bde" />
+
     
 2. Allow the non-colocated joins by enabling the `Allow non-colocated joins` checkbox on the GridGain Nebula screen. Run the query again to see a complete and correct result.
    <img width="1086" alt="image" src="https://github.com/user-attachments/assets/8d6bb24c-51db-4955-a91e-728483b13e04" />
+
+> [!tip]
+> The same query is saved in sql file, which you can run from SQLLine as: `!run sql/top_20_longest_tracks_with_artists.sql` and see the result on SQLLine. You can observe the empty values against `ARTIST` column, same as you observed on UI after the first step.
 
 > [!note]
 > When data is colocated, it means that related data is stored on the same node in the cluster.
