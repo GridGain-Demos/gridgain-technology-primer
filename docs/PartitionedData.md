@@ -9,7 +9,7 @@ GridGain Nebula. You will see the tables created from SQLLine on the Caches Scre
 
 > [!note]
 > You will notice a couple of tables showing `Replicated` and rest of the tables showing `Partitioned` under the Mode column.
-> - In **Replicated Cache Mode**, all the data (every partition) is replicated to every node in the cluster. This mode provides the high availability of data.
+> - In **Replicated Cache Mode**, whole data is replicated to every node of the cluster. This mode provides the high availability of data.
 > - In **Partitioned Cache Mode**, the data is split between the partitions across all server nodes. This mode is the most scalable; as the more nodes you have, the more data you can store.
  
 
@@ -22,6 +22,21 @@ You can verify the same on your SQLLine window.
 
 3. Optional- scale out the cluster by the third node. You'll see that some partitions were rebalanced to the new node.
 <img width="1376" alt="image" src="https://github.com/user-attachments/assets/7e3f172c-0537-4177-b061-288eb68bb969" />
+
+> [!tip]
+> In case of Partitioned cache, data is divided into 1024 partitions. Each node holds a subset of partitions, with primary and backup copies.
+
+Here is a diagram that illustrates a 2-node GridGain cluster with two caches in partitioned mode. It is provided as a simplified example to help understand how data is distributed and stored; and may not represent the actual distribution of data in a real cluster.
+
+<div align=center>
+ <img width=500 alt="Partitioned Cache" src="https://github.com/user-attachments/assets/d207bc3d-c1cc-4d3c-8bf0-2423b7101dc9">
+</div>
+
+Suppose our GridGain cluster has 3 nodes, and the partitioned cache (Cache_Partition in the diagram) is configured to have 1 backup partition. In this case, the distribution of primary and backup partitions would look as shown. For the replicated cache (Cache_Replicated in the diagram), every node in the cluster would hold a full copy of all the data.
+<div align=center>
+<img width=800 alt="Replicated Cache" src="https://github.com/user-attachments/assets/ccce4de4-f67a-4cc2-80bc-8dc6187d17d4">
+</div>
+
 
 > [!important]
 > **Checkpoint:** The Caches page on Control Center should list all the created tables. Running `select count(*)` command on any of the tables on SQLLine should show a non-zero count. You can also execute `Run scan query` by clicking on the ellipsis on any of the tables shown on the Caches page.
