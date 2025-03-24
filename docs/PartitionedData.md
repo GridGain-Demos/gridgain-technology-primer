@@ -8,7 +8,7 @@ GridGain Nebula. You will see the tables created from SQLLine on the Caches Scre
 
 
 > [!note]
-> You will notice a couple of tables showing `Replicated` and rest of the tables showing `Partitioned` under the Mode column.
+> You will notice a couple of tables showing `Replicated` and rest of the tables showing `Partitioned` under the Mode column. Did we specify which cache should be of which type and how many backups are to be set? Yes. We have specified that in the `create table` definition of respective caches. e.g. Artist cache has `WITH "template=partitioned, backups=1 ..."` while Genre has `WITH "template=replicated ..."` in their respective definitions.
 > - In **Replicated Cache Mode**, whole data is replicated to every node of the cluster. This mode provides the high availability of data.
 > - In **Partitioned Cache Mode**, the data is split between the partitions across all server nodes. This mode is the most scalable; as the more nodes you have, the more data you can store.
  
