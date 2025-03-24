@@ -45,8 +45,13 @@ start the sample code with IntelliJ IDEA or Eclipse. The JAR is used by other to
 to download the module that connects to GridGain Nebula.
 3. Start the first cluster node (or just start the app with IntelliJ IDEA or Eclipse):
     <pre><code>java -cp libs/core.jar org/gridgain/server/IgniteServer</code></pre>
+ You will see `GridGain` on the terminal with its version:
+ 
+ <img width="612" alt="image" src="https://github.com/user-attachments/assets/f9990ed4-f842-41c9-ae4f-034c563dbf53" />
 
+ 
  You will notice `Ignite node started OK` on the terminal and `servers=1` under Topology when your first node start successfully.
+ 
  <img width="808" alt="image" src="https://github.com/user-attachments/assets/600e5ecc-6ae7-4a23-aa5a-acbe23a92c8c" />
 
 4. Open another terminal window and start the second node:
