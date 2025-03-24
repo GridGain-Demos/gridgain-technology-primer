@@ -47,6 +47,23 @@ You can notice that the computation has happened on all the server nodes (client
 > [!tip]
 > What would have happened if we had started the ComputeApp as a server node? It would have assumed responsibility for storing data and triggered the redistribution (rebalancing) of the already stored data.
 
+What exactly did the client node do? It distributed the task to the server nodes so that each server node could execute the task against the data it holds.
+```mermaid
+graph TD
+    CA[Client Node]
+    CA -->|Compute| Server_Node_1[Server Node 1]
+    CA -->|Compute| Server_Node_2[Server Node 2]
+```
+The server nodes executed the task at their ends and sent the results back to the client node. Client node aggregated the results and showed it. Here is a simplified flow of the sub-tasks:
+```mermaid
+graph LR
+    A[Compute Task started by Client Node] --> |Map Phase| B[Task given to server nodes]
+    B --> |Execute Phase| C[Each server node runs task against the data it holds]
+    C --> D[Return all results to Client Node]
+    D --> |Reduce Phase| E[Result Aggregation]
+```
+
+
 #### Modify the computation logic: 
 
 1. Update the logic to return top-10 paying customers (Hint: Modify the variable `customersCount` value in `ComputeApp.java`).
