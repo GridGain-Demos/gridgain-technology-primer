@@ -14,6 +14,8 @@ going to run basic SQL operations as well as more advanced ones.
     WHERE genreId < 17
     GROUP BY trackid, name ORDER BY duration DESC LIMIT 20;
     ```
+3. Optional - The same query is saved in sql file, which you can run from SQLLine as: `!run sql/top_20_longest_tracks.sql`
+   
  #### Understanding Query Execution
  
  For complex queries, optimizing queries significantly improves the performance. To be able to optimize any query, you will need to understand the execution strategy. Add `EXPLAIN` before a query and execute it to see the plan.
