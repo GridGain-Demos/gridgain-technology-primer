@@ -7,7 +7,7 @@ merges partial results.
 > [!note]
 > - __Compute Task__ interface in GridGain provides fine-grained control over job distribution and custom fail-over logic, allowing developers to implement complex distributed algorithms, enabling massive parallel processing and efficient handling of large datasets. GridGain provides a simplified MapReduce API for it.
 > - __MapReduce__ is a distributed computation model where the "map" phase processes data in parallel across multiple nodes, and the "reduce" phase aggregates the results to produce a final output. It allows large-scale data processing efficiently within a GridGain cluster.
-> - 
+
 1. In the earlier step of building the project, you can observe 2 jars being built in the libs folder of the project. We will now work with the apps.jar in this section.
 
 2. Run the app in the terminal:
@@ -33,11 +33,19 @@ was executed across the cluster.
 <img width="700" alt="Client" src="https://github.com/user-attachments/assets/f2632a98-33be-4b92-b84e-5d62132613ac" />
 
 
-You can notice that the computation has happened on the server nodes.
+You can notice that the computation has happened on all the server nodes (client node has done the job of aggregating the results sent by each of the server nodes).
 
 <img width="700" alt="ComputeGrid" src="https://github.com/user-attachments/assets/53159ebd-cea2-4180-802a-59cbe4b3d700" />
 
+> [!note]
+> - __Thick clients__ (client nodes) join the cluster via an internal protocol, receive all of the cluster-wide updates such as topology changes, are aware of data distribution, and can direct a query/operation to a server node that owns a required data set. Plus, thick clients support all of the GridGain APIs. They are very similar to server nodes; the main difference being that thick clients do not store any data.
+> - __Thin clients__ (lightweight clients) connect to the cluster using the binary protocol with a well-defined message format. While this type of client supports a more limited set of APIs, it offers the advantage of being able to work with a wide range of programming languages, without being restricted to just a few.
 
+> [!note]
+> Was it possible to start a server node instead of a client node for running the compute task? Yes. The class `Appconfiguration` constructor takes a boolen value variable `isClient` which is being used in `setClientMode()`. From the `ComputeApp` constructor, we are passing `true` value of `isClient`, which tells that this new node has to start as a client node.
+
+> [!tip]
+> What would have happened if we had started the ComputeApp as a server node? It would have assumed responsibility for storing data and triggered the redistribution (rebalancing) of the already stored data.
 
 #### Modify the computation logic: 
 
