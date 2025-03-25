@@ -1,9 +1,27 @@
 # GridGain Technology Primer
 ##Key Design Principles for Building Data-Intensive Applications
 
+Welcome to the GridGain Acceleration Workshop! GridGain is an in-memory storage and computing platform that accelerates applications by providing in-memory distributed caching as well as processing, plus provides ACID transactions. This repository provides a practical introduction to GridGain, designed to help you explore its potential for enhancing application performance and scalability. Our goal is to demonstrate how GridGain can be effectively used in your project
+
+This workshop, structured for both guided demonstrations and independent exploration, will walk you through key concepts and hands-on examples, allowing you to experience and apply GridGain's capabilities.
+
+You might come across the names GridGain and Apache Ignite interchangeably. The GridGain platform is built on Apache Ignite. The source code for Apache Ignite was originally donated to the Apache Software Foundation by GridGain Systems. We will use the GridGain 9.0 platform in this workshop.
+
+What You'll Learn
+Throughout this workshop, you will gain hands-on experience with key GridGain 9 concepts and features:
+
+* Data Storage
+* Creating caches using SQL
+* Understanding of data partitions
+* Managing primary/affinity keys for optimal performance
+* Querying and Analysis
+* Writing SQL queries against distributed data
+* Implementing complex joins and aggregations for operational insights
+* Optimizing SQL queries
+* Running MapReduce Job
+* Creating compute task for distributed and parallel processing
 
 ## Prerequisites
-
 * Java Developer Kit, version 11, 17 or 21
 * Apache Maven 3.0 or later
 * Docker

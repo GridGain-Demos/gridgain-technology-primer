@@ -7,11 +7,11 @@
 	<groupId>org.gridgain.training</groupId>
 	<artifactId>gridgain-technology-primer</artifactId>
 	<version>9.0.16-SNAPSHOT</version>
-
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<ignite.version>3.0.0</ignite.version>
-		<gridgain.version>9.0.16</gridgain.version>
+		<gridgain.version>9.0.15</gridgain.version>
 		<lombok.version>1.18.36</lombok.version>
 		<java.version>21</java.version>
 		<maven.compiler.source>21</maven.compiler.source>
