@@ -1,6 +1,6 @@
 # GridGain Acceleration Workshop: Concepts to Practical Mastery
 
-Welcome to the GridGain Acceleration Workshop! GridGain is an in-memory storage and computing platform that accelerates applications by providing in-memory distributed caching as well as processing, plus provides ACID transactions. This repository provides a practical introduction to GridGain, designed to help you explore its potential for enhancing application performance and scalability. Our goal is to demonstrate how GridGain can be effectively utilized within your project. This workshop, structured for both guided demonstrations and independent exploration, will walk you through key concepts and hands-on examples, allowing you to experience and apply GridGain's capabilities.
+Welcome to the GridGain Acceleration Workshop! GridGain is an in-memory storage and computing platform that accelerates applications by providing in-memory distributed caching as well as processing, plus provides ACID transactions. This repository provides a practical introduction to GridGain, designed to help you explore its potential for enhancing application performance and scalability. Our goal is to demonstrate how GridGain can be effectively used in your project. This workshop, structured for both guided demonstrations and independent exploration, will walk you through key concepts and hands-on examples, allowing you to experience and apply GridGain's capabilities.
 
 You might come across the names GridGain and Apache Ignite interchangeably. The GridGain platform is built on Apache Ignite. The source code for Apache Ignite was originally contributed to the Apache Software Foundation by GridGain Systems. We will use the Community Edtion(CE) of GridGain 8.9 platform in this workshop. The GridGain Community Edition is a source-available version of Apache Ignite which includes patches and updates not yet included in Ignite.
 
@@ -17,7 +17,7 @@ Throughout this workshop, you will gain hands-on experience with key GridGain 8 
 ### Querying and Analysis
 
 - Writing SQL queries against distributed data
-- Implementing complex joins operational insights
+- Implementing complex joins and aggregations for operational insights
 - Optimizing SQL queries
 
 ### Running MapReduce Job
@@ -40,11 +40,11 @@ Here is a diagram that illustrates a 2-node GridGain cluster with two caches in 
 
     
 <div align="center">
-  <img src="docs/Data_partition.png" alt="DataPartition">
+  <img width=500 alt="DataPartition" src="https://github.com/user-attachments/assets/100d0346-df9e-42eb-a34d-daba718fe42e"/>
 </div>
 
 > [!note]
-> - __Primary Partition__ is the main partition that holds the actual data for a given key. Each key is assigned to a primary partition in the cluster based on the hashing algorithm.
+> - __Primary Partition__ is the authoritative partition responsible for handling a given key. Each key is assigned to a primary partition in the cluster based on the hashing algorithm.
 > - __Backup Partition__ is a replica of a primary partition, stored on a different node to ensure fault tolerance and data availability in case the primary partition becomes unavailable.
 
 ## Prerequisites
