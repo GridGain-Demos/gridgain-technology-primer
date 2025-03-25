@@ -7,7 +7,7 @@ import org.apache.ignite.IgniteCache;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.configuration.IgniteConfiguration;
 
-import com.gridgain.dih.app.DemoConfiguration;
+import com.gridgain.server.AppConfiguration;
 
 <#list tables as table>
 import ${package_pojo}.${table.classname};
@@ -40,7 +40,7 @@ public class IgniteClientHelper implements AutoCloseable {
 	public IgniteClientHelper(boolean destroyCaches) throws Exception {
 		System.setProperty("IGNITE_QUIET", "true");
 
-		IgniteConfiguration cfg = new DemoConfiguration();
+		IgniteConfiguration cfg = new AppConfiguration();
 		cfg.setClientMode(true);
 
 		ignite = Ignition.start(cfg);

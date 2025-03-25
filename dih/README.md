@@ -46,7 +46,11 @@ This project extends the core Technology Primer
 	./docker.sh
 	```
 
-2. Run the class com.gridgain.dih.replicate.GenerateAll
+2. Run the class
+
+	```bash
+	com.gridgain.dih.replicate.GenerateAll
+	```
 
 	This will generate POJOs, CacheConfiguration and IgniteClientHelper classes in com.gridgain.dih.gen package
 	This will also generate an ApiServer class and OpenApi definition which provides CRUD operations for each of the tables.
