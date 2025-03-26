@@ -50,10 +50,22 @@ You can notice that the computation has happened on all the server nodes (client
 What exactly did the client node do? It distributed the task to the server nodes so that each server node could execute the task against the data it holds.
 ```mermaid
 graph TD
-    CA[Client Node]
-    CA -->|Compute| Server_Node_1[Server Node 1]
-    CA -->|Compute| Server_Node_2[Server Node 2]
+    subgraph "GridGain Cluster"
+        Node1[Server Node 1]
+        Node2[Server Node 2]
+    end
+    
+    subgraph "Our Application"
+        Client[Java Client]
+    end
+    
+    Client -->|Compute| Node1
+    Client -->|Compute| Node2
 ```
+
+> [!tip]
+> Think of GridGain server nodes as database servers that work together to store data. The client is like a database connector in your application code.
+
 The server nodes executed the task at their ends and sent the results back to the client node. Client node aggregated the results and showed it. Here is a simplified flow of the sub-tasks:
 ```mermaid
 graph LR
