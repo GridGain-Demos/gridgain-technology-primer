@@ -1,0 +1,11 @@
+.DS_Store
+.classpath
+.factorypath
+.project
+.settings
+**/Icon*
+target
+src/main/java/com/gridgain/gen
+openapi/
+/.apt_generated/
+/.apt_generated_tests/

@@ -1,0 +1,43 @@
+#  Copyright (C) GridGain Systems. All Rights Reserved.
+#  _________        _____ __________________        _____
+#  __  ____/___________(_)______  /__  ____/______ ____(_)_______
+#  _  / __  __  ___/__  / _  __  / _  / __  _  __ `/__  / __  __ \
+#  / /_/ /  _  /    _  /  / /_/ /  / /_/ /  / /_/ / _  /  _  / / /
+#  \____/   /_/     /_/   \_,__/   \____/   \__,_/  /_/   /_/ /_/
+
+name: dih-data-sources
+
+services:
+  cassandra:
+    attach: false
+    image: cassandra
+    ports:
+      - 9042:9042
+    volumes:
+      - ./cassandra/cassandra.yaml:/etc/cassandra/cassandra.yaml
+      - ./cassandra:/opt/data
+  mongo:
+    attach: false
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb:/opt/data
+  mysql:
+    attach: false
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql:/opt/data
+  postgres:
+    attach: false
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres:/opt/data
