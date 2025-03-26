@@ -6,6 +6,8 @@ Data partitioning is a method of subdividing large sets of data into smaller chu
 GridGain Nebula. You will see the tables created from SQLLine on the Caches Screen.
 <img width="1491" alt="image" src="https://github.com/user-attachments/assets/79006749-ea3a-4a99-9152-948d54862dc8" />
 
+> [!tip]
+> We have provided the Employee table as an additional resource for you to explore. The steps in our workshop do not require this table, so feel free to experiment with it.
 
 > [!note]
 > You will notice a couple of tables showing `Replicated` and rest of the tables showing `Partitioned` under the Mode column. Did we specify which cache should be of which type and how many backups are to be set? Yes. We have specified that in the `create table` definition of respective caches. e.g. Artist cache has `WITH "template=partitioned, backups=1 ..."` while Genre has `WITH "template=replicated ..."` in their respective definitions.
@@ -26,7 +28,7 @@ You can verify the same on your SQLLine window.
 > [!tip]
 > In case of Partitioned cache, data is divided into 1024 partitions. Each node holds a subset of partitions, with primary and backup copies.
 
-Here is a diagram that illustrates a 2-node GridGain cluster with two caches in partitioned mode. It is provided as a simplified example to help understand how data is distributed and stored; and may not represent the actual distribution of data in a real cluster.
+Here is a diagram that illustrates a 2-node GridGain cluster with two caches in partitioned mode, configured with 1 backup. It is provided as a simplified example to help understand how data is distributed and stored; and may not represent the actual distribution of data in a real cluster.
 
 <div align=center>
  <img width=500 alt="Partitioned Cache" src="https://github.com/user-attachments/assets/d207bc3d-c1cc-4d3c-8bf0-2423b7101dc9">
