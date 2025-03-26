@@ -67,7 +67,9 @@ avoid the usage of the non-colocated joins:
         
         
 5. In GridGain Nebula, run that query once again(without selecting the checkbox and you'll see that all the `artist` columns are filled in because now all the Tracks are stored together with their Artists on the same cluster node.
-<img width="1061" alt="image" src="https://github.com/user-attachments/assets/af1ae8bf-76bc-4ff7-9287-a25d736a4f57" />
+<div align="center">
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/af1ae8bf-76bc-4ff7-9287-a25d736a4f57" />
+</div>
 
 
 Task for self-exploration: Compare the performance of non-colocated join query and its corresponding colocated join query.
