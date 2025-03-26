@@ -14,6 +14,7 @@ going to run basic SQL operations as well as more advanced ones.
     WHERE genreId < 17
     GROUP BY trackid, name ORDER BY duration DESC LIMIT 20;
     ```
+    You should get to see the records at the bottom of your screen.
 3. Optional - The same query is saved in sql file, which you can run from SQLLine as: `!run sql/top_20_longest_tracks.sql`
    
  #### Understanding Query Execution
@@ -28,6 +29,8 @@ going to run basic SQL operations as well as more advanced ones.
  You can see the Explain Plan for a query that you have already run from the Query Statistics page. Here you can also notice performance of your query.
 
  <img width="1476" alt="image" src="https://github.com/user-attachments/assets/956befc6-4034-437b-83d1-1b2170fe77af" />
+
+ In this workshop, we will not be deep diving into the query plan. 
 
 > [!important]
 > **Checkpoint:** Your queries should run successfully.
