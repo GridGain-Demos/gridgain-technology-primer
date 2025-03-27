@@ -19,7 +19,7 @@ Use SQLLine tool to load the data in GridGain:
     <pre><code>!run core/sql/media_store_create.sql</code></pre>
 
    You will notice that the script is getting executed and tables are getting created, a part of which looks like:
-   <img width="757" alt="image" src="https://github.com/user-attachments/assets/a47ba77a-e273-4a02-882c-da35796cae28" />
+   <img width="757" alt="image" src="https://github.com/user-attachments/assets/49641f13-d126-4443-99bd-2047ae2eaf8f" />
 
     <pre><code>!run core/sql/media_store_populate.sql</code></pre>
    
