@@ -14,7 +14,7 @@ We will run compute task. The compute task executes on every cluster node. It it
 1. In the earlier step of building the project, you can observe 2 jars being built in the libs folder of the project. We will now work with the apps.jar in this section.
 
 2. Run the app in the terminal:
-    <pre><code>java -cp libs/apps.jar:libs/core.jar org.gridgain.app.ComputeApp</code></pre>
+    <pre><code>java -cp core/libs/apps.jar:core/libs/core.jar com.gridgain.app.ComputeApp</code></pre>
     
     You can see the overall result i.e. the top 5 highest paying customers on the same terminal (observe that some computations also be happened on this terminal locally and then the cumulative results are shown):
 
@@ -79,7 +79,7 @@ graph LR
 1. Update the logic to return top-10 paying customers (Hint: Modify the variable `customersCount` value in `ComputeApp.java`).
 
 2. Re-build an executable JAR with the applications' classes (or just start the app with IntelliJ IDEA or Eclipse):
-    <pre><code>mvn clean package </code></pre>
+    <pre><code>mvn clean package -pl core</code></pre>
     
 3. Run the app again:
     <pre><code>java -cp libs/apps.jar:libs/core.jar org.gridgain.app.ComputeApp</code></pre>

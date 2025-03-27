@@ -13,13 +13,19 @@ We will be spinning up a 2-node GridGain 8.9 Community Edition cluster locally f
 > - __Control Center__ - It is a management and monitoring tool for GridGain and Apache Ignite clusters. It features a graphical user interface that helps you perform administrative tasks and monitor your clusters.
 
 Install the following on your local machine:
-* Java Developer Kit, version 11 and set JAVA_HOME
+* Java Developer Kit, version 11/17 and set JAVA_HOME
 * Apache Maven 3.6 or later
 * Your favorite IDE, such as IntelliJ IDEA, or Eclipse, or a simple text editor.
 
-This project will also work with Java 17, but additional options need
-to be specified on the command-line. You can use `@src/main/resources/j17.params` argument
-after `java` command so that the parameters from the j17.params file are picked up while executing the command.
+> [!tip]
+> For running this project with Java 17, additional options need to be specified on the command-line. Use `@src/main/resources/j17.params` argument after `java` command so that the parameters from the j17.params file are picked up while executing the command. Example: For **Java 11**, run :
+> ```bash 
+> java -cp core/libs/core.jar com/gridgain/server/IgniteServer
+> ```
+> For **Java 17**, run: 
+> ```bash 
+> java @core/src/main/resources/j17.params -cp core/libs/core.jar com/gridgain/server/IgniteServer
+> ```
 
 
 ## Clone The Project
@@ -38,13 +44,13 @@ You will not have to run GridGain separately because we will be starting the Gri
 
 2. Use Maven to create a core executable JAR with all the dependencies (Note, build the JAR even if you plan to
 start the sample code with IntelliJ IDEA or Eclipse. The JAR is used by other tools throughout the class):
-    <pre><code>mvn clean package</code></pre>
+    <pre><code>mvn clean package -pl core</code></pre>
     
    If you see build errors, it may be because a firewall or proxy server is blocking access to
 [GridGain's External Maven Repo](https://www.gridgainsystems.com/nexus/content/repositories/external) which is used
 to download the module that connects to GridGain Nebula.
 3. Start the first cluster node (or just start the app with IntelliJ IDEA or Eclipse):
-    <pre><code>java -cp libs/core.jar org/gridgain/server/IgniteServer</code></pre>
+    <pre><code>java -cp core/libs/core.jar com.gridgain.server.IgniteServer</code></pre>
    You will see `GridGain` on the terminal with its version:
  
    <img width="612" alt="image" src="https://github.com/user-attachments/assets/f9990ed4-f842-41c9-ae4f-034c563dbf53" />
@@ -54,7 +60,7 @@ to download the module that connects to GridGain Nebula.
    <img width="808" alt="image" src="https://github.com/user-attachments/assets/600e5ecc-6ae7-4a23-aa5a-acbe23a92c8c" />
 
 4. Open another terminal window and start the second node:
-    <pre><code>java -cp libs/core.jar org/gridgain/server/IgniteServer</code></pre>
+    <pre><code>java -cp core/libs/core.jar com.gridgain.server.IgniteServer</code></pre>
     You will notice `servers=2` under Topology.
    
      <img width="801" alt="image" src="https://github.com/user-attachments/assets/1b73180c-6082-492b-ac19-38d4749331bf" />

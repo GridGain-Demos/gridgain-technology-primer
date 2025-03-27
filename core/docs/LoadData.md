@@ -8,7 +8,7 @@ Use SQLLine tool to load the data in GridGain:
    
 2. We will use the executable JAR created earlier and launch a SQLLine process from terminal:
  
-    <pre><code>java -cp libs/core.jar sqlline.SqlLine</code></pre>
+    <pre><code>java -cp core/libs/core.jar sqlline.SqlLine</code></pre>
     You will see the `sqlline` prompt on the terminal.
    
 3. Connect to the cluster from this sqlline prompt:
@@ -16,12 +16,12 @@ Use SQLLine tool to load the data in GridGain:
    You will be connected to your GridGain cluster using the jdbc thin client.
 
 4. Create and load the Media Store data on your GridGain cluster from the thin client:
-    <pre><code>!run sql/media_store_create.sql</code></pre>
+    <pre><code>!run core/sql/media_store_create.sql</code></pre>
 
    You will notice that the script is getting executed and tables are getting created, a part of which looks like:
    <img width="757" alt="image" src="https://github.com/user-attachments/assets/a47ba77a-e273-4a02-882c-da35796cae28" />
 
-    <pre><code>!run sql/media_store_populate.sql</code></pre>
+    <pre><code>!run core/sql/media_store_populate.sql</code></pre>
    
    You will notice many insert statements executing; the end of which looks as follows:
    <img width="761" alt="image" src="https://github.com/user-attachments/assets/063b9413-4a5d-43c7-9796-dfb684574876" />
