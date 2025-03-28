@@ -3,52 +3,6 @@ GridGain Digital Integration Hub is intended to be used as an example of how to 
 
 This project extends the core Technology Primer
 
-## Setup Databases
-
-*This has only been tested on Mac with Apple Silicon, your milage may vary ;-)*
-
-1. Start DB's in Docker & Load Data
-	
-	1. MySql
-	
-	```bash
-	cd mysql
-	./docker.sh
-	```
-	2. Postgres
-
-	```bash
-	cd postgres
-	./docker.sh
-	```
-	
-	1. Cassandra
-
-	```bash
-	cd cassandra
-	./docker.sh
-	```
-	
-	1. MongoDB
-	
-
-	```bash
-	cd mongodb
-	./docker.sh
-	```
-	
-	1. Oracle
-	
-	```bash
-	cd oracle
-	./docker.sh
-	```
-
-2. Run the class com.gridgain.dih.replicate.GenerateAll
-
-	This will generate POJOs, CacheConfiguration and IgniteClientHelper classes in com.gridgain.dih.gen package
-	This will also generate an ApiServer class and OpenApi definition which provides CRUD operations for each of the tables.
-
 ## Setup Kafka Services
 
 3. Configure License
@@ -122,26 +76,26 @@ Kafka Control Center is enabled so you can monitor Kafka cluster with http://loc
 9. Start a server node
 
 	```bash
-	com.gridgain.dih.app.IgniteServer
+	com.gridgain.app.IgniteServer
 	```
 
 10. Run the Kafka data generator
 
 	```bash
-	com.gridgain.dih.kafka.KafkaCsvStockTicker
+	com.gridgain.kafka.KafkaCsvStockTicker
 	```
 	
 11. Start the connector with GridGain connector enabled
 
 	```bash
 	export _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true"
-	connect-standalone etc/kafka/connect-standalone.properties ~/git/gridgain-dih/kafka/gridgain-kafka-connect-sink.properties
+	connect-standalone etc/kafka/connect-standalone.properties kafka/gridgain-kafka-connect-sink.properties
 	```
 
 12. Start the Client, this will load all the data from all the 3rd party data sources
 
 	```bash
-	com.gridgain.dih.gen.app.IgniteClientHelper
+	com.gridgain.app.IgniteClientHelper
 	```
 	
 13. Start the REST API server
@@ -149,5 +103,5 @@ Kafka Control Center is enabled so you can monitor Kafka cluster with http://loc
 	GET, POST & DELETE methods have been created for each table which takes a parameter of the object id, POST method does a put to the cache taking the body as Json of the object
 
 	```bash
-	com.gridgain.dih.gen.app.ApiServer
+	com.gridgain.app.ApiServer
 	```

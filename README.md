@@ -6,6 +6,16 @@ The project starts with the basic priciples of in-memory datagrid, compute grid 
 
 Current Modules are;
 
-1. [core](core)
+1. [Core](core)
+
+	In this project you will learn about Data Storage, Queries, Coolcation of Data and Compute Jobs
+
 2. [Digital Intgration Hub](dih)
+
+	In this project you will see how multiple datasources can be combined in a Digital Integration Hub architecture providing a scalable and consistent REST API access to the data.
+	
 3. [Kafka](kafka)
+
+	In this project you will see how to use the Confluent Certified Kafka Connector which is included in GridGain Enterprise and Ultimate Editions.
+	
+This project uses Maven modules, you can clone the entire repository and use the module(s) that you want.
