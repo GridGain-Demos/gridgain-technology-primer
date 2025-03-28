@@ -82,7 +82,7 @@ graph LR
     <pre><code>mvn clean package -pl core</code></pre>
     
 3. Run the app again:
-    <pre><code>java -cp libs/apps.jar:libs/core.jar org.gridgain.app.ComputeApp</code></pre>
+    <pre><code>java -cp core/libs/apps.jar:core/libs/core.jar com.gridgain.app.ComputeApp</code></pre>
     
 Observe the terminals where server nodes are running as well as the one where client node is running.
 

@@ -64,7 +64,7 @@ avoid the usage of the non-colocated joins:
         <pre><code>!run core/sql/media_store_populate.sql</code></pre>
 
 > [!tip]
-> Since we stopped the server nodes, we directly started started with fresh creation of schema and populating the tables. If the tables would have resided in-memory, which we now wanted to recreate, we would have used `!dropall` on SQLLine.    
+> Since we stopped the server nodes here, we started with fresh creation of new colocated schema and populating the tables. If the earlier tables would have resided in-memory, which we now wanted to recreate, we would have used `!dropall` on SQLLine.    
         
 5. In GridGain Nebula, run that query once again(without selecting the checkbox and you'll see that all the `artist` columns are filled in because now all the Tracks are stored together with their Artists on the same cluster node.
 <div align="center">
