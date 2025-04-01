@@ -6,22 +6,28 @@ Use SQLLine tool to load the data in GridGain:
 
 1. Open a terminal window and navigate to the root directory of this project.
    
-2. We will use the executable JAR created earlier and launch a SQLLine process:
+2. We will use the executable JAR created earlier and launch a SQLLine process from terminal:
  
-    <pre><code>java -cp libs/core.jar sqlline.SqlLine</code></pre>
-    
+    <pre><code>java -cp core/libs/core.jar sqlline.SqlLine</code></pre>
+    You will see the `sqlline` prompt on the terminal.
    
-3. Connect to the cluster:
+3. Connect to the cluster from this sqlline prompt:
    <pre><code>!connect jdbc:ignite:thin://127.0.0.1/ ignite ignite</code></pre>
+   You will be connected to your GridGain cluster using the jdbc thin client.
 
-
-4. Create and load the Media Store database:
-    <pre><code>!run sql/media_store_create.sql</code></pre>
+4. Create and load the Media Store data on your GridGain cluster from the thin client:
+    <pre><code>!run core/sql/media_store_create.sql</code></pre>
 
    You will notice that the script is getting executed and tables are getting created, a part of which looks like:
-   <img width="757" alt="image" src="https://github.com/user-attachments/assets/a47ba77a-e273-4a02-882c-da35796cae28" />
+   <img width="757" alt="image" src="https://github.com/user-attachments/assets/49641f13-d126-4443-99bd-2047ae2eaf8f" />
 
-    <pre><code>!run sql/media_store_populate.sql</code></pre>
+   Our schema is created.
+   <div align="center">
+   <img width="422" alt="image" src="https://github.com/user-attachments/assets/c0388655-b8c8-4a4d-9ccc-e6cfebcf49f3" />
+   </div>
+
+    Load data using the following command: 
+    <pre><code>!run core/sql/media_store_populate.sql</code></pre>
    
    You will notice many insert statements executing; the end of which looks as follows:
    <img width="761" alt="image" src="https://github.com/user-attachments/assets/063b9413-4a5d-43c7-9796-dfb684574876" />

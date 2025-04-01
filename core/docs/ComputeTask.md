@@ -1,8 +1,11 @@
 ## 5. Running Distributed Compute Tasks
 
-Run `org.gridgain.app.ComputeApp` that uses Apache Ignite compute capabilities for the calculation of top-5 paying customers.
-The compute task executes on every cluster node. It iterates through local records and responds to the application that 
-merges partial results.
+We now want to demonstrate the parallel processing capabilities of GridGain cluster. Let us take the example of calculating and finding of top-5 paying customers. This requires calculating how much each customer is paying(Remember we have got Invoice and InvoiceLine caches, which hold payment data). Then sorting is needed to find the top paying customers. 
+> [!Tip]
+> The data is distributed across nodes. Wondered how can we sort the customer payments across multiple nodes?
+> The task of finding the top paying customers has to be done at each of the nodes and then the results have to be merged to find the top paying from the aggregated result.
+
+We will run compute task. The compute task executes on every cluster node. It iterates through local records and responds to the application that merges partial results.
 
 > [!note]
 > - __Compute Task__ interface in GridGain provides fine-grained control over job distribution and custom fail-over logic, allowing developers to implement complex distributed algorithms, enabling massive parallel processing and efficient handling of large datasets. GridGain provides a simplified MapReduce API for it.
@@ -11,22 +14,17 @@ merges partial results.
 1. In the earlier step of building the project, you can observe 2 jars being built in the libs folder of the project. We will now work with the apps.jar in this section.
 
 2. Run the app in the terminal:
-    <pre><code>java -cp libs/apps.jar:libs/core.jar org.gridgain.app.ComputeApp</code></pre>
+    <pre><code>java -cp core/libs/apps.jar:core/libs/core.jar com.gridgain.app.ComputeApp</code></pre>
     
-You can see the overall result i.e. the top 5 highest paying customers on the same terminal (observe that some computations also be happened on this terminal locally and then the cumulative results are shown):
+    You can see the overall result i.e. the top 5 highest paying customers on the same terminal (observe that some computations also be happened on this terminal locally and then the cumulative results are shown):
 
-<img width="700" alt="image" src="https://github.com/user-attachments/assets/4ed0cbfd-64fe-4ada-8ffb-3db115b28ff7" />
+    <img width="700" alt="image" src="https://github.com/user-attachments/assets/4ed0cbfd-64fe-4ada-8ffb-3db115b28ff7" />
 
-On the dashboard, you can see the thick client count goes from 0 to 1. Note that the thin client count 1 is the SQLLine client connected to the cluster.
+    On the dashboard, you can see the thick client count goes from 0 to 1. Note that the thin client count 1 is the SQLLine client connected to the cluster. Also, you can see the compute tasks under the "Compute" section of the portal.
 <div align="center">
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/9852f434-144b-45dd-971f-6e6ab0102855" />
+    <img width="300" alt="image" src="https://github.com/user-attachments/assets/9852f434-144b-45dd-971f-6e6ab0102855" />
+    <img alt="Compute" src="https://github.com/user-attachments/assets/1cffb986-28e3-4205-a73c-af6b29cea264"/>
 </div>
-
-You can see the compute tasks under the "Compute" section of the portal.
-<div align="center">
-<img alt="Compute" src="https://github.com/user-attachments/assets/1cffb986-28e3-4205-a73c-af6b29cea264"/>
-</div>
-
 
 3. Check the logs of the `ServerStartup` processes (your GridGain server nodes) to see that the calculation
 was executed across the cluster.
@@ -81,10 +79,10 @@ graph LR
 1. Update the logic to return top-10 paying customers (Hint: Modify the variable `customersCount` value in `ComputeApp.java`).
 
 2. Re-build an executable JAR with the applications' classes (or just start the app with IntelliJ IDEA or Eclipse):
-    <pre><code>mvn clean package </code></pre>
+    <pre><code>mvn clean package -pl core</code></pre>
     
 3. Run the app again:
-    <pre><code>java -cp libs/apps.jar:libs/core.jar org.gridgain.app.ComputeApp</code></pre>
+    <pre><code>java -cp core/libs/apps.jar:core/libs/core.jar com.gridgain.app.ComputeApp</code></pre>
     
 Observe the terminals where server nodes are running as well as the one where client node is running.
 

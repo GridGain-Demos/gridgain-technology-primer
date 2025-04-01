@@ -18,7 +18,7 @@ records, to execute and optimize SQL queries, and to monitor the state of the cl
 > * Generate the token (the `ManagementCommandHandler` is the tool used by the 
     [management.sh|bat script](https://www.gridgain.com/docs/control-center/latest/clusters#generating-a-token) of the 
     Ignite Agent distribution package). In this application, since the dependency is packaged, you can call it directly using the following command:
-> <pre><code>java -cp libs/core.jar org.gridgain.control.agent.commandline.ManagementCommandHandler --token</code></pre>
+> <pre><code>java -cp core/libs/core.jar org.gridgain.control.agent.commandline.ManagementCommandHandler --token</code></pre>
 > Copy this new token and paste it on the modal panel of `Attach Cluster` on the portal.
  
 The correct and valid token will connect to your cluster and take you to the dashboard, show your cluster to be **Healthy**; and the "Nodes" section will show your server nodes.

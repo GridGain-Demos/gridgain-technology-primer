@@ -32,13 +32,13 @@ public class DataLoader {
 	
 	public static void createTables(Ignite ignite) throws IOException {
 		System.out.println("Creating tables via SQL script ...");
-		String filePath = "sql/media_store_create.sql";
+		String filePath = "core/sql/media_store_create.sql";
 		sqlScript(filePath, ignite);
 	}
 	public static void populateTables(Ignite ignite) throws IOException {
 		System.out.println("Loading table data via SQL script ...");
 
-		String filePath = "sql/media_store_populate.sql";
+		String filePath = "core/sql/media_store_populate.sql";
 		sqlScript(filePath, ignite);
 	}
 
