@@ -23,16 +23,16 @@ import org.apache.ignite.cache.affinity.AffinityKeyMapped;
 public class AlbumKey {
 
 	@AffinityKeyMapped
-	private Integer artistId;
+	private Integer ARTISTID;
 	private Integer albumId;
 
-	public AlbumKey(Integer albumId, Integer artistId) {
+	public AlbumKey(Integer albumId, Integer ARTISTID) {
 		this.albumId = albumId;
-		this.artistId = artistId;
+		this.ARTISTID = ARTISTID;
 	}
 
 	public Integer getArtistId() {
-		return artistId;
+		return ARTISTID;
 	}
 
 	public Integer getAlbumId() {
@@ -48,11 +48,11 @@ public class AlbumKey {
 		if (getClass() != obj.getClass())
 			return false;
 		AlbumKey other = (AlbumKey) obj;
-		return Objects.equals(albumId, other.albumId) && Objects.equals(artistId, other.artistId);
+		return Objects.equals(albumId, other.albumId) && Objects.equals(ARTISTID, other.ARTISTID);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(albumId, artistId);
+		return Objects.hash(albumId, ARTISTID);
 	}
 }
